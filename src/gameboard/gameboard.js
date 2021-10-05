@@ -7,7 +7,7 @@ class GameBoard {
 
     init() {
         for (let i = 0; i < 100; i += 1) {
-            this.board.push({ hasShip: false, isShot: false });
+            this.board.push({ hasShip: false, isHit: false });
         }
     }
 
