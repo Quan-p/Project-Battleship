@@ -21,3 +21,8 @@ test('update cell to be labeled as hit', () => {
 test('returns false on a miss', () => {
     expect(testBoard.checkIfAttackHit(50)).toBe(false);
 });
+
+test('confirms an attack hit', () => {
+    testBoard.board[99].hasShip = true;
+    expect(testBoard.checkIfAttackHit(99)).toBe(true);
+});
