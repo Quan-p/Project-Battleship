@@ -13,3 +13,5 @@ class Ship {
         return this.position.every((occupiedCell) => this.hits.includes(occupiedCell));
     }
 }
+
+export default Ship;
