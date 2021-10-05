@@ -17,3 +17,7 @@ test('update cell to be labeled as hit', () => {
     testBoard.receiveAttack(90);
     expect(testBoard.board[90].isHit).toBe(true);
 });
+
+test('returns false on a miss', () => {
+    expect(testBoard.checkIfAttackHit(50)).toBe(false);
+});
