@@ -23,5 +23,7 @@ test('accept hit', () => {
 
 test('accept multiple hits', () => {
     testSubmarine.hit(5);
-    expect(testSubmarine.hits).toEqual([5]);
+    testSubmarine.hit(6);
+    testSubmarine.hit(7);
+    expect(testSubmarine.hits).toEqual([5, 6, 7]);
 });
