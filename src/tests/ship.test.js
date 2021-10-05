@@ -27,3 +27,10 @@ test('accept multiple hits', () => {
     testSubmarine.hit(7);
     expect(testSubmarine.hits).toEqual([5, 6, 7]);
 });
+
+test('ship is shown as sunk', () => {
+    testSubmarine.hit(12);
+    testSubmarine.hit(13);
+    testSubmarine.hit(14);
+    expect(testSubmarine.isSunk()).toBe(true);
+});
