@@ -28,7 +28,11 @@ test('confirms an attack hit', () => {
     expect(testBoard.checkIfAttackHit(99)).toBe(true);
 });
 
-test('checks ship overlap on placement', () => {
+test('rejects ship overlap on placement', () => {
     testBoard.board[10].hasShip = 'submarine';
     expect(testBoard.checkOverlap([10, 20, 30])).toBe(false);
+});
+
+test('rejects ship collision with x axis', () => {
+    expect(testBoard.checkOverlap([9, 10, 11, 12])).toBe(false);
 });
