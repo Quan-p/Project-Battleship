@@ -49,7 +49,7 @@ class GameBoard {
         const findValidLocation = (axis) => {
             const possibleLocations = [];
             for (let i = 0; i < 100 - ship.length; i += 1) {
-                let locationArray = [];
+                const locationArray = [];
                 if (axis === 'x') {
                     for (let count = 0; count < ship.length; i += 1) {
                         locationArray.push(i + count);
