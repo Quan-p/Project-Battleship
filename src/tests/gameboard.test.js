@@ -36,3 +36,7 @@ test('rejects ship overlap on placement', () => {
 test('rejects ship collision with x axis', () => {
     expect(testBoard.checkOverlap([9, 10, 11, 12])).toBe(false);
 });
+
+test('rejects ship collision with y axis', () => {
+    expect(testBoard.checkOverlap([99, 109, 119])).toBe(false);
+});
