@@ -1,4 +1,5 @@
 import GameBoard from '../gameboard/gameboard';
+import shipTypes from '../ship/shipTypes';
 
 let testBoard;
 beforeEach(() => {
@@ -29,5 +30,5 @@ test('confirms an attack hit', () => {
 
 test('checks ship overlap on placement', () => {
     testBoard.board[10].hasShip = 'submarine';
-    expect(testBoard.checkOverlap([10, 20, 30, 40])).toBe(false);
+    expect(testBoard.checkOverlap([10, 20, 30])).toBe(false);
 });
