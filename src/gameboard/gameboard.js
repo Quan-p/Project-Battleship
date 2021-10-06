@@ -28,6 +28,20 @@ class GameBoard {
         }
         return locationArray;
     }
+
+    checkOverlap(locationArray) {
+        const wallCollision = [9, 19, 29, 39, 49, 59, 69, 79, 89];
+        if (locationArray.some((loc) => !this.board[loc])) {
+            return false;
+        } if (locationArray.some((loc) => this.board[loc].hasShip)) {
+            return false;
+        // eslint-disable-next-line max-len
+        } if (wallCollision.some((num) => [num, num + 1].every((combination) => locationArray.includes(combination)))
+        ) {
+            return false;
+        }
+        return true;
+    }
 }
 
 export default GameBoard;
