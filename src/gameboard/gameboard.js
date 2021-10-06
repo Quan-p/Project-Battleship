@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-unused-expressions */
 class GameBoard {
     constructor(board) {
@@ -20,7 +21,6 @@ class GameBoard {
         return this.board[location].hasShip;
     }
 
-    // eslint-disable-next-line class-methods-use-this
     createLocationArray(location, ship, axis) {
         const locationArray = [];
         for (let i = 0; i < ship.length; i += 1) {
@@ -41,6 +41,31 @@ class GameBoard {
             return false;
         }
         return true;
+    }
+
+    randomShipLocation(ship) {
+        const randomAxis = () => ['x', 'y'][Math.floor(Math.random() * 2)];
+
+        const findValidLocation = (axis) => {
+            const possibleLocations = [];
+            for (let i = 0; i < 100 - ship.length; i += 1) {
+                let locationArray = [];
+                if (axis === 'x') {
+                    for (let count = 0; count < ship.length; i += 1) {
+                        locationArray.push(i + count);
+                    }
+                } else {
+                    for (let count = 0; count < ship.length; i += 1) {
+                        locationArray.push(i + count * 10);
+                    }
+                }
+                if (this.checkOverlap(locationArray)) {
+                    possibleLocations.push(locationArray);
+                }
+            }
+            return possibleLocations[Math.random() * possibleLocations.length];
+        };
+        return findValidLocation(randomAxis());
     }
 }
 
