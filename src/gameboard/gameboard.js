@@ -67,6 +67,17 @@ class GameBoard {
         };
         return findValidLocation(randomAxis());
     }
+
+    // displays game board that represents what computer will see
+    opponentBoard() {
+        return this.board.map((cell) => {
+            if (cell.isHit && cell.hasShip) {
+                return 'hit';
+            } if (cell.isHit) {
+                return 'miss';
+            } return 'empty';
+        });
+    }
 }
 
 export default GameBoard;
