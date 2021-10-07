@@ -20,6 +20,7 @@ describe('player mock test', () => {
         }
         testBoard.aiBoard = arr;
     });
+
     test('create player with name', () => {
         expect(player.name).toBe('Quan');
     });
@@ -29,8 +30,10 @@ describe('player mock test', () => {
         expect(testBoard.receiveShot.mock.calls.length).toBe(1);
     });
 
-    test('check location push', () => {
+    test('reject locations already hit', () => {
+        testBoard.aiBoard[50] = 'miss';
         player.fireShot(50, testBoard);
-        expect(testBoard.aiBoard).toBe(50);
+        player.fireShot(55, testBoard);
+        expect(testBoard.receiveShot.mock.calls.length).toBe(1);
     });
 });
