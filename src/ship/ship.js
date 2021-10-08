@@ -1,4 +1,6 @@
 class Ship {
+    static hitStat = { unHit: 0, hit: 1};
+
     constructor(name, position) {
         this.name = name;
         this.position = position;
