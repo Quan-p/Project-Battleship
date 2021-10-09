@@ -14,8 +14,18 @@ class Ship {
         }
     }
 
-    isSunk() {
-        return this.position.every((occupiedCell) => this.hits.includes(occupiedCell));
+    get isSunk() {
+        let sunk = true;
+        for (let i = 0; i < this.status.length; i += 1) {
+            if (this.status[i] === Ship.hitStatus.unHit) {
+                sunk = false;
+            }
+        }
+        return sunk;
+    }
+
+    get shipLength() {
+        return this.status.length;
     }
 }
 
