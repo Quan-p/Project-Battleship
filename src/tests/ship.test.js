@@ -1,10 +1,8 @@
 import Ship from '../ship/ship';
 
 let testSubmarine;
-let testCarrier;
 
 beforeEach(() => {
-    testCarrier = new Ship(5);
     testSubmarine = new Ship(3);
 });
 
