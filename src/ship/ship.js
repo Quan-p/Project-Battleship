@@ -1,5 +1,5 @@
 class Ship {
-    static hitStatus = { unHit: 0, hit: 1};
+    static hitStatus = { unHit: 0, hit: 1 };
 
     constructor(length) {
         this.status = new Array(length);
