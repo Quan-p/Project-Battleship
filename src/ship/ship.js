@@ -1,14 +1,17 @@
 class Ship {
-    static hitStat = { unHit: 0, hit: 1};
+    static hitStatus = { unHit: 0, hit: 1};
 
-    constructor(name, position) {
-        this.name = name;
-        this.position = position;
-        this.hits = [];
+    constructor(length) {
+        this.status = new Array(length);
+        for (let i = 0; i < length; i += 1) {
+            this.status[i] = Ship.hitStatus.unHit;
+        }
     }
 
     hit(index) {
-        this.hits.push(index);
+        if (index < this.status.length) {
+            this.status[index] = Ship.hitStatus.hit;
+        }
     }
 
     isSunk() {
