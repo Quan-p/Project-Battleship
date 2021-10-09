@@ -1,9 +1,10 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-unused-expressions */
 class GameBoard {
-    constructor(board) {
-        this.board = board || [];
-        if (!this.board.length) this.init();
+    constructor() {
+        this.boardState = [];
+        this.ships = [];
+        this.createBoard();
     }
 
     init() {
