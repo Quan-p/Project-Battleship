@@ -11,3 +11,8 @@ beforeEach(() => {
 test('ships with no hit return false sunk status', () => {
     expect(testSubmarine.isSunk).toEqual(false);
 });
+
+test('partially hit ship returns false sunk status', () => {
+    testSubmarine.hit(1);
+    expect(testSubmarine.isSunk).toEqual(false);
+});
