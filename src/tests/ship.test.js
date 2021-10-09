@@ -8,7 +8,6 @@ beforeEach(() => {
     testSubmarine = new Ship(3);
 });
 
-test('accept hit', () => {
-    testSubmarine.hit(3);
-    expect(testSubmarine.hits).toEqual([0]);
+test('ships with no hit return false sunk status', () => {
+    expect(testSubmarine.isSunk).toEqual(false);
 });
