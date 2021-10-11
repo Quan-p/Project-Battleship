@@ -13,7 +13,7 @@ test('initialize gameboard', () => {
     for (let i = 0; i < 100; i += 1) {
         array.push({ hasShip: false, isHit: false });
     }
-    expect(testBoard.board).toEqual(array);
+    expect(testBoard.boardState).toEqual(array);
 });
 
 test('update cell to be labeled as hit', () => {
