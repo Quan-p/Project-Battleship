@@ -22,6 +22,23 @@ class GameBoard {
         }
     }
 
+    checkEmptyBoard(row, col) {
+        if (this.boardState[row][col] === BoardSpaceStatus.empty) return true;
+        return false;
+    }
+
+    static isSpaceInBoard(row, col) {
+        if (
+            row >= BoardSize
+            || row < 0
+            || col >= BoardSize
+            || col < 0
+        ) {
+            return false;
+        }
+        return true;
+    }
+
     receiveAttack(location) {
         this.board[location].isHit = true;
     }
