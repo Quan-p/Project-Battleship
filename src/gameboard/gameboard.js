@@ -65,6 +65,57 @@ class GameBoard {
         return true;
     }
 
+    static getCoordsToCheck(ship, row, col, direction) {
+        const coordsToCheck = [];
+        let rowVar = row;
+        let colVar = col;
+
+        for (let i = 0; i < ship.length; i += 1) {
+            coordsToCheck.push({ rowVar, colVar });
+
+            switch (direction) {
+            case Direction.right: {
+                colVar += 1;
+                break;
+            }
+            case Direction.left: {
+                colVar -= 1;
+                break;
+            }
+            case Direction.up: {
+                rowVar -= 1;
+                break;
+            }
+            case Direction.down: {
+                rowVar += 1;
+                break;
+            }
+            default: {
+                break;
+            }
+            }
+        }
+        return coordsToCheck;
+    }
+
+    // return true if ship is in valid spot, false if not
+    addShip(ship, row, col, direction) {
+        if (!this.isValidPlacement) {
+            return false;
+        }
+        // Adds ship if true
+        this.ships.push({
+            ship, row, col, direction,
+        });
+
+        const coordsToCheck = GameBoard.getCoordsToCheck(ship, row, col, direction);
+        for (let i = 0; i < coordsToCheck.length; i += 1) {
+            this.boardState[coordsToCheck[i].rowVar][coordsToCheck[i].colVar] = BoardSpaceStatus.ship;
+        }
+
+        return true;
+    }
+
     receiveAttack(location) {
         this.board[location].isHit = true;
     }
