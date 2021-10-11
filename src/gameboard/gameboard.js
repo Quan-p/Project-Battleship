@@ -1,4 +1,9 @@
 /* eslint-disable class-methods-use-this */
+
+import {
+    BoardSize, BoardSpaceStatus, AttackStatus, Direction 
+} from '../ship/shipMessage';
+
 /* eslint-disable no-unused-expressions */
 class GameBoard {
     constructor() {
@@ -7,8 +12,8 @@ class GameBoard {
         this.createBoard();
     }
 
-    init() {
-        for (let i = 0; i < 100; i += 1) {
+    createBoard() {
+        for (let i = 0; i < BoardSize; i += 1) {
             this.board.push({ hasShip: false, isHit: false });
         }
     }
