@@ -27,7 +27,7 @@ class GameBoard {
         return false;
     }
 
-    static isSpaceInBoard(row, col) {
+    static isSpaceInBounds(row, col) {
         if (
             row >= BoardSize
             || row < 0
@@ -48,6 +48,21 @@ class GameBoard {
         while (this.ships.length > 0) {
             this.ships.pop();
         }
+    }
+
+    isValidPlacement(ship, row, col, direction) {
+        if (!GameBoard.isSpaceInBounds(row, col)) {
+            return false;
+        }
+
+        const checkCoords = GameBoard.getCoordsToCheck(ship, row, col, direction);
+
+        for (let i = 0; i < checkCoords.length; i += 1) {
+            if (!GameBoard.isSpaceInBounds(checkCoords[i].rowVar, checkCoords[i].colVar)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     receiveAttack(location) {
