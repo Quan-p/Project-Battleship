@@ -15,7 +15,7 @@ class GameBoard {
     createBoard() {
         for (let i = 0; i < BoardSize; i += 1) {
             const newRow = [];
-            for (let x = 0; x < BoardSize; x += 1) {
+            for (let j = 0; j < BoardSize; j += 1) {
                 newRow.push(BoardSpaceStatus.empty);
             }
             this.boardState.push(newRow);
@@ -37,6 +37,17 @@ class GameBoard {
             return false;
         }
         return true;
+    }
+
+    resetBoard() {
+        for (let i = 0; i < BoardSize; i += 1) {
+            for (let j = 0; j < BoardSize; j += 1) {
+                this.boardState[i][j] = BoardSpaceStatus.empty;
+            }
+        }
+        while (this.ships.length > 0) {
+            this.ships.pop();
+        }
     }
 
     receiveAttack(location) {
