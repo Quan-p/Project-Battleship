@@ -14,7 +14,11 @@ class GameBoard {
 
     createBoard() {
         for (let i = 0; i < BoardSize; i += 1) {
-            this.board.push({ hasShip: false, isHit: false });
+            const newRow = [];
+            for (let x = 0; x < BoardSize; x += 1) {
+                newRow.push(BoardSpaceStatus.empty);
+            }
+            this.boardState.push(newRow);
         }
     }
 
