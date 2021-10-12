@@ -48,3 +48,11 @@ test('check for valid hit on a ship', () => {
 test('check for valid hit on a ship', () => {
     expect(testBoard.receiveAttack(0, 2)).toBe(AttackStatus.sunk);
 });
+
+test('check for second invalid shot on a ship already shot', () => {
+    expect(testBoard.receiveAttack(0, 1)).toBe(AttackStatus.invalid);
+});
+
+test('check for second invalid shot on a ship already shot', () => {
+    expect(testBoard.receiveAttack(0, 2)).toBe(AttackStatus.invalid);
+});
