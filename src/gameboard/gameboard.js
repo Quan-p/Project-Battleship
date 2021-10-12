@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable class-methods-use-this */
 
 import {
@@ -116,11 +117,51 @@ class GameBoard {
 
         const coordsToCheck = GameBoard.getCoordsToCheck(ship, row, col, direction);
         for (let i = 0; i < coordsToCheck.length; i += 1) {
-            // eslint-disable-next-line max-len
             this.boardState[coordsToCheck[i].rowVar][coordsToCheck[i].colVar] = BoardSpaceStatus.ship;
         }
 
         return true;
+    }
+
+    receiveAttack(row, col) {
+        if (!GameBoard.isSpaceInBounds(row, col)) {
+            return AttackStatus.invalid;
+        }
+        // invalid attacks
+        if (
+            this.boardState[row][col] === BoardSpaceStatus.emptyHit
+            || this.boardState[row][col] === BoardSpaceStatus.shipHit
+        ) {
+            return AttackStatus.invalid;
+        }
+        if (this.boardState[row][col] === BoardSpaceStatus.empty) {
+            this.boardState[row][col] = BoardSpaceStatus.emptyHit;
+            return AttackStatus.miss;
+        }
+        if (this.boardState[row][col] === BoardSpaceStatus.ship) {
+            this.boardState[row][col] = BoardSpaceStatus.shipHit;
+
+            let hitStatus;
+            for (let i = 0; i < this.ships.length; i += 1) {
+                hitStatus = GameBoard.checkIfShotIsInShipBounds(row, col, this.ships[i]);
+
+                if (hitStatus.hit) {
+                    this.ships[i].ship.hit(hitStatus.position);
+                    this.boardState[row][col] = BoardSpaceStatus.shipHit;
+                    if (this.ships[i].ship.isSunk) {
+                        this.boardState[row][col] = BoardSpaceStatus.shipSunk;
+                        const coords = GameBoard.getShipCoords(this.ships[i]);
+                        for (let j = 0; j < coords.length; j += 1) {
+                            this.boardState[coords[j].row][coords[j].col] = BoardSpaceStatus.shipSunk;
+                        }
+                        return AttackStatus.sunk;
+                    }
+                    break;
+                }
+            }
+            return AttackStatus.hit;
+        }
+        return AttackStatus.invalid;
     }
 }
 
