@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 
 import {
-    BoardSize, BoardSpaceStatus, AttackStatus, Direction 
+    BoardSize, BoardSpaceStatus, AttackStatus, Direction,
 } from '../ship/shipMessage';
 
 /* eslint-disable no-unused-expressions */
@@ -21,11 +21,14 @@ class GameBoard {
             this.boardState.push(newRow);
         }
     }
+    // if empty space return true
 
-    checkEmptyBoard(row, col) {
+    isSpaceEmpty(row, col) {
         if (this.boardState[row][col] === BoardSpaceStatus.empty) return true;
+
         return false;
     }
+    //  if in bounds return true
 
     static isSpaceInBounds(row, col) {
         if (
@@ -61,7 +64,7 @@ class GameBoard {
             if (!GameBoard.isSpaceInBounds(coordsToCheck[i].rowVar, coordsToCheck[i].colVar)) {
                 return false;
             }
-            if (!this.checkEmptyBoard(coordsToCheck[i].rowVar, coordsToCheck[i].colVar)) {
+            if (!this.isSpaceEmpty(coordsToCheck[i].rowVar, coordsToCheck[i].colVar)) {
                 return false;
             }
         }
@@ -72,7 +75,6 @@ class GameBoard {
         const coordsToCheck = [];
         let rowVar = row;
         let colVar = col;
-
         for (let i = 0; i < ship.length; i += 1) {
             coordsToCheck.push({ rowVar, colVar });
 
@@ -93,6 +95,7 @@ class GameBoard {
                 rowVar += 1;
                 break;
             }
+
             default: {
                 break;
             }
@@ -106,13 +109,13 @@ class GameBoard {
         if (!this.isValidPlacement(ship, row, col, direction)) {
             return false;
         }
-        // Adds ship if true
         this.ships.push({
             ship, row, col, direction,
         });
 
         const coordsToCheck = GameBoard.getCoordsToCheck(ship, row, col, direction);
         for (let i = 0; i < coordsToCheck.length; i += 1) {
+            // eslint-disable-next-line max-len
             this.boardState[coordsToCheck[i].rowVar][coordsToCheck[i].colVar] = BoardSpaceStatus.ship;
         }
 

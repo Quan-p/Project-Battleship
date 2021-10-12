@@ -40,7 +40,7 @@ const AttackStatus = {
     invalid: 3,
 };
 
-const BoardSize = 10;
+const BoardSize = 7;
 
 export {
     GameStage,
