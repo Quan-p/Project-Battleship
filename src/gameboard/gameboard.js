@@ -24,12 +24,13 @@ class GameBoard {
     // if empty space return true
 
     isSpaceEmpty(row, col) {
-        if (this.boardState[row][col] === BoardSpaceStatus.empty) return true;
-
+        if (this.boardState[row][col] === BoardSpaceStatus.empty) {
+            return true;
+        }
         return false;
     }
-    //  if in bounds return true
 
+    //  if in bounds return true
     static isSpaceInBounds(row, col) {
         if (
             row >= BoardSize
@@ -120,10 +121,6 @@ class GameBoard {
         }
 
         return true;
-    }
-
-    receiveAttack(location) {
-        this.board[location].isHit = true;
     }
 }
 

@@ -1,4 +1,4 @@
-const GameStage = {
+const GameState = {
     playerTurn: 0,
     compTurn: 1,
     gameEnd: 2,
@@ -40,10 +40,10 @@ const AttackStatus = {
     invalid: 3,
 };
 
-const BoardSize = 7;
+const BoardSize = 8;
 
 export {
-    GameStage,
+    GameState,
     GameMessages,
     BoardSpaceStatus,
     Direction,
