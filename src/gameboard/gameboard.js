@@ -195,6 +195,54 @@ class GameBoard {
         }
         return coords;
     }
+
+    static checkIfShotIsInShipBounds(row, col, shipInfo) {
+        let checkRow = shipInfo.row;
+        let checkCol = shipInfo.col;
+
+        switch (shipInfo.direction) {
+        case Direction.right: {
+            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+                if (checkRow === row && checkCol === col) {
+                    return { hit: true, positioni: i };
+                }
+                checkCol += 1;
+            }
+            break;
+        }
+        case Direction.left: {
+            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+                if (checkRow === row && checkCol === col) {
+                    return { hit: true, positioni: i };
+                }
+                checkCol -= 1;
+            }
+            break;
+        }
+        case Direction.down: {
+            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+                if (checkRow === row && checkCol === col) {
+                    return { hit: true, positioni: i };
+                }
+                checkRow += 1;
+            }
+            break;
+        }
+        case Direction.up: {
+            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+                if (checkRow === row && checkCol === col) {
+                    return { hit: true, positioni: i };
+                }
+                checkRow -= 1;
+            }
+            break;
+        }
+        default: {
+            break;
+        }
+        }
+        return { hit: false, position: -1 };
+    }
 }
 
 export default GameBoard;
