@@ -163,6 +163,38 @@ class GameBoard {
         }
         return AttackStatus.invalid;
     }
+
+    static getShipCoords(ship) {
+        const coords = [];
+        let { row } = ship;
+        let { col } = ship;
+        coords.push({ row, col });
+
+        for (let i = 0; i < ship.ships.length; i += 1) {
+            switch (ship.direction) {
+            case Direction.down: {
+                row += 1;
+                break;
+            }
+            case Direction.up: {
+                row -= 1;
+                break;
+            }
+            case Direction.right: {
+                col += 1;
+                break;
+            }
+            case Direction.left: {
+                col -= 1;
+                break;
+            }
+            default: 
+                break;
+            }
+            coords.push({ row, col});
+        }
+        return coords;
+    }
 }
 
 export default GameBoard;
