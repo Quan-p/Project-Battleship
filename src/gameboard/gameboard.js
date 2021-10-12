@@ -100,7 +100,7 @@ class GameBoard {
 
     // return true if ship is in valid spot, false if not
     addShip(ship, row, col, direction) {
-        if (!this.isValidPlacement) {
+        if (!this.isValidPlacement(ship, row, col, direction)) {
             return false;
         }
         // Adds ship if true
