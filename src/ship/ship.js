@@ -8,6 +8,12 @@ class Ship {
         }
     }
 
+    reset() {
+        for (let i = 0; i < this.status.length; i += 1) {
+            this.status[i] = Ship.hitStatus.unHit;
+        }
+    }
+
     hit(index) {
         if (index < this.status.length) {
             this.status[index] = Ship.hitStatus.hit;
@@ -24,7 +30,7 @@ class Ship {
         return sunk;
     }
 
-    get shipLength() {
+    get length() {
         return this.status.length;
     }
 }

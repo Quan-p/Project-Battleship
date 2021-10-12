@@ -14,7 +14,7 @@ test('add ships to invalid spots, expect false', () => {
 // });
 
 // test('check for ship placement overflow upwards to return false', () => {
-//     expect(testBoard.addShip(submarine, 0, 7, Direction.up)).toBe(false);
+//     expect(testBoard.addShip(submarine, 0, 4, Direction.up)).toBe(false);
 // });
 
 // test('Add ship at position that will overflow board left, expect false', () => {
@@ -36,4 +36,9 @@ test('return miss on atttacking empty spot', () => {
 
 test('check for invalid shot at spot thats already been attacked', () => {
     expect(testBoard.receiveAttack(4, 4)).toBe(AttackStatus.invalid);
+});
+
+test('check for valid hit on a ship', () => {
+    testBoard.addShip(submarine, 0, 0, Direction.right);
+    expect(testBoard.receiveAttack(0, 0)).toBe(AttackStatus.hit);
 });
