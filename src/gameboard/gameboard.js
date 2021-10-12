@@ -170,7 +170,7 @@ class GameBoard {
         let { col } = ship;
         coords.push({ row, col });
 
-        for (let i = 0; i < ship.ships.length; i += 1) {
+        for (let i = 0; i < ship.ship.length; i += 1) {
             switch (ship.direction) {
             case Direction.down: {
                 row += 1;
@@ -188,10 +188,10 @@ class GameBoard {
                 col -= 1;
                 break;
             }
-            default: 
+            default:
                 break;
             }
-            coords.push({ row, col});
+            coords.push({ row, col });
         }
         return coords;
     }
@@ -202,36 +202,36 @@ class GameBoard {
 
         switch (shipInfo.direction) {
         case Direction.right: {
-            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+            for (let i = 0; i < shipInfo.ship.length; i += 1) {
                 if (checkRow === row && checkCol === col) {
-                    return { hit: true, positioni: i };
+                    return { hit: true, position: i };
                 }
                 checkCol += 1;
             }
             break;
         }
         case Direction.left: {
-            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+            for (let i = 0; i < shipInfo.ship.length; i += 1) {
                 if (checkRow === row && checkCol === col) {
-                    return { hit: true, positioni: i };
+                    return { hit: true, position: i };
                 }
                 checkCol -= 1;
             }
             break;
         }
         case Direction.down: {
-            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+            for (let i = 0; i < shipInfo.ship.length; i += 1) {
                 if (checkRow === row && checkCol === col) {
-                    return { hit: true, positioni: i };
+                    return { hit: true, position: i };
                 }
                 checkRow += 1;
             }
             break;
         }
         case Direction.up: {
-            for (let i = 0; i < shipInfo.ship.length; i += 0) {
+            for (let i = 0; i < shipInfo.ship.length; i += 1) {
                 if (checkRow === row && checkCol === col) {
-                    return { hit: true, positioni: i };
+                    return { hit: true, position: i };
                 }
                 checkRow -= 1;
             }

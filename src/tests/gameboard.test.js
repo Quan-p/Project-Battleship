@@ -38,6 +38,13 @@ test('check for invalid shot at spot thats already been attacked', () => {
 });
 
 test('check for valid hit on a ship', () => {
-    testBoard.addShip(submarine, 0, 0, Direction.right);
     expect(testBoard.receiveAttack(0, 0)).toBe(AttackStatus.hit);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(0, 1)).toBe(AttackStatus.hit);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(0, 2)).toBe(AttackStatus.sunk);
 });
