@@ -55,10 +55,13 @@ class GameBoard {
             return false;
         }
 
-        const checkCoords = GameBoard.getCoordsToCheck(ship, row, col, direction);
+        const coordsToCheck = GameBoard.getCoordsToCheck(ship, row, col, direction);
 
-        for (let i = 0; i < checkCoords.length; i += 1) {
-            if (!GameBoard.isSpaceInBounds(checkCoords[i].rowVar, checkCoords[i].colVar)) {
+        for (let i = 0; i < coordsToCheck.length; i += 1) {
+            if (!GameBoard.isSpaceInBounds(coordsToCheck[i].rowVar, coordsToCheck[i].colVar)) {
+                return false;
+            }
+            if (!this.checkEmptyBoard(coordsToCheck[i].rowVar, coordsToCheck[i].colVar)) {
                 return false;
             }
         }
