@@ -33,3 +33,7 @@ test('Add ship at valid position, expect true', () => {
 test('return miss on atttacking empty spot', () => {
     expect(testBoard.receiveAttack(4, 4)).toBe(AttackStatus.miss);
 });
+
+test('check for invalid shot at spot thats already been attacked', () => {
+    expect(testBoard.receiveAttack(4, 4)).toBe(AttackStatus.invalid);
+});
