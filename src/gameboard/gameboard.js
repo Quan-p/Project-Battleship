@@ -243,6 +243,16 @@ class GameBoard {
         }
         return { hit: false, position: -1 };
     }
+
+    checkAllShipsSunk() {
+        let allShipsSunk = true;
+        for (let i = 0; i < this.ships.length; i += 1) {
+            if (!this.ships[i].ship.isSunk) {
+                allShipsSunk = false;
+            }
+        }
+        return allShipsSunk;
+    }
 }
 
 export default GameBoard;
