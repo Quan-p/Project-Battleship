@@ -56,3 +56,21 @@ test('check for second invalid shot on a ship already shot', () => {
 test('check for second invalid shot on a ship already shot', () => {
     expect(testBoard.receiveAttack(0, 2)).toBe(AttackStatus.invalid);
 });
+
+test('shot outside bounds of board return invalid', () => {
+    expect(testBoard.receiveAttack(-1, -1)).toBe(AttackStatus.invalid);
+});
+
+describe('all ships sunk', () => {
+    beforeEach(() => {
+        testBoard.resetBoard();
+        const patrolBoat = new Ship(2);
+        const destroyer = new Ship(3);
+        testBoard.addShip(patrolBoat, 0, 0, Direction.down);
+        testBoard.addShip(destroyer, 1, 1, Direction.down);
+    });
+
+    test('test for no ships sunk, returns false', () => {
+        expect(testBoard.checkAllShipsSunk()).toBe(false);
+    });
+});
