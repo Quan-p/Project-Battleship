@@ -15,5 +15,9 @@ test('add ships to invalid spots, expect false', () => {
 });
 
 test('check for ship placement overflow to the right to return false', () => {
-    expect(testBoard.addShip(carrier, 0, 10, Direction.right)).toBe(false);
+    expect(testBoard.addShip(carrier, 0, 9, Direction.right)).toBe(false);
+});
+
+test('check for ship placement overflow upwards to return false', () => {
+    expect(testBoard.addShip(carrier, 0, 9, Direction.up)).toBe(false);
 });
