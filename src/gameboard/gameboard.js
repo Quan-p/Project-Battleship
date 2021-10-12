@@ -150,6 +150,7 @@ class GameBoard {
                     this.boardState[row][col] = BoardSpaceStatus.shipHit;
                     if (this.ships[i].ship.isSunk) {
                         this.boardState[row][col] = BoardSpaceStatus.shipSunk;
+
                         const coords = GameBoard.getShipCoords(this.ships[i]);
                         for (let j = 0; j < coords.length; j += 1) {
                             this.boardState[coords[j].row][coords[j].col] = BoardSpaceStatus.shipSunk;

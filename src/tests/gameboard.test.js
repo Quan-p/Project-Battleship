@@ -61,16 +61,32 @@ test('shot outside bounds of board return invalid', () => {
     expect(testBoard.receiveAttack(-1, -1)).toBe(AttackStatus.invalid);
 });
 
-describe('all ships sunk', () => {
-    beforeEach(() => {
-        testBoard.resetBoard();
-        const patrolBoat = new Ship(2);
-        const destroyer = new Ship(3);
-        testBoard.addShip(patrolBoat, 0, 0, Direction.down);
-        testBoard.addShip(destroyer, 1, 1, Direction.down);
-    });
+testBoard.resetBoard();
+const testShip1 = new Ship(3);
+const testShip2 = new Ship(1);
+testBoard.addShip(testShip1, 2, 2, Direction.right);
+testBoard.addShip(testShip2, 5, 5, Direction.down);
 
-    test('test for no ships sunk, returns false', () => {
-        expect(testBoard.checkAllShipsSunk()).toBe(false);
-    });
+test('test for no ships sunk, returns false', () => {
+    expect(testBoard.checkAllShipsSunk()).toBe(false);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(2, 2)).toBe(AttackStatus.hit);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(2, 3)).toBe(AttackStatus.hit);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(2, 4)).toBe(AttackStatus.sunk);
+});
+
+test('check for valid hit on a ship', () => {
+    expect(testBoard.receiveAttack(5, 5)).toBe(AttackStatus.sunk);
+});
+
+test('test for all ships sunk, returns true', () => {
+    expect(testBoard.checkAllShipsSunk()).toBe(true);
 });
