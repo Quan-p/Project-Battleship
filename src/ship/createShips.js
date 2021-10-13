@@ -35,6 +35,19 @@ class ShipDom {
         // this.body.textContent = '';
         this.body.appendChild(this.introParent);
     }
+
+    createElementsForShipPlacement() {
+        this.playSpace = newElement.newElement('div', 'play-space');
+
+        this.rotateButton = newElement.newElement('button', 'rotate-button');
+        this.rotateButton.innerText = ' ROTATE';
+        this.rotateButton.addEventListener('click', this.sendRotate);
+
+        this.testGrid = newElement.newElement('div', 'test-grid');
+        for (let i = 0; i < 25; i += 1) {
+            this.testGrid.appendChild(newElement.newElement('div', 'testGrid-empty'));
+        }
+    }
 }
 
 export default ShipDom;
