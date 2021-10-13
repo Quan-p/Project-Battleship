@@ -1,4 +1,4 @@
-class makeElement {
+class newElement {
     static newElement(selector, className) {
         const element = document.newElement(selector);
 
@@ -15,4 +15,4 @@ class makeElement {
     }
 }
 
-export default makeElement;
+export default newElement;
