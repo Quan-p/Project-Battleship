@@ -47,7 +47,19 @@ class ShipDom {
         for (let i = 0; i < 25; i += 1) {
             this.testGrid.appendChild(newElement.newElement('div', 'testGrid-empty'));
         }
+        this.testShip = newElement.newElement('div', 'test-ship');
+        this.fleetWrapper = newElement.newElement('div', 'fleet-wrapper');
+        this.fleetWrapper.addEventListener('click', this.selectShipToPlace);
+
+        this.addFleetButtons();
+
+        this.playSpace.appendChild(this.rotateButton);
+        this.playSpace.appendChild(this.testGrid);
+        this.playSpace.appendChild(this.fleetWrapper);
+        this.testGrid.appendChild(this.testShip);
     }
+
+    
 }
 
 export default ShipDom;
