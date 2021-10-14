@@ -59,7 +59,22 @@ class ShipDom {
         this.testGrid.appendChild(this.testShip);
     }
 
-    
+    setShip(callback) {
+        this.selectShip = callback;
+    }
+
+    selectShipToPlace(e) {
+        this.selectShip(Number(e.target.dataset.index));
+    }
+
+    focusFleetButton(index) {
+        for (let i = 0; i < this.fleetWrapper.childNodes.length; i += 1) {
+            if (Number(this.fleetWrapper.childNodes[i].dataset.index) === index) {
+                this.fleetWrapper.childNodes[i].classList.add('fleet-button-focus');
+            }
+        }
+    }
+
 }
 
 export default ShipDom;
