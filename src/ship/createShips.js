@@ -71,10 +71,25 @@ class ShipDom {
         for (let i = 0; i < this.fleetWrapper.childNodes.length; i += 1) {
             if (Number(this.fleetWrapper.childNodes[i].dataset.index) === index) {
                 this.fleetWrapper.childNodes[i].classList.add('fleet-button-focus');
+            } else {
+                this.fleetWrapper.childNodes[i].classList.remove('fleet-button-focus');
             }
         }
     }
 
+    addFleetButtons() {
+        for (let i = 0; i < this.fleet.length; i += 1) {
+            const btn = newElement.newElement('button', 'fleet-wrapper-button');
+            // btn.style.gridColumn = `1 / span ${this.fleet[i].length}';
+            // style this separately
+            btn.dataset.index = i;
+            this.fleetWrapper.appendChild(btn);
+        }
+    }
+
+    removeAllFleetButtons() {
+        this.fleetWrapper.textContent = '';
+    }
 }
 
 export default ShipDom;
