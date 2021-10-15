@@ -104,6 +104,36 @@ class ShipDom {
         this.titleContent = newElement.newElement('h1', 'game-title-content');
         this.titleContent.innerText = 'BATTLESHIP';
         this.title.appendChild(this.titleContent);
+
+        this.playingField = newElement.newElement('div', 'playing-field');
+        this.playerField = newElement.newElement('div', 'player-field');
+        this.cpuField = newElement.newElement('div', 'player-field');
+        this.playerTitle = newElement.newElement('h2', 'player-title');
+        this.playerTitle = newElement.newElement('h2', 'player-title');
+        this.cpuTitle = newElement.newElement('h2', 'player-title');
+        this.playerTitle.innerText = 'YOUR WATERS';
+        this.cpuTitle.innerText = 'CPU WATERs';
+
+        this.playerBoard = newElement.newElement('div', 'player-field-grid');
+        this.cpuBoard = newElement.newElement('div', 'player-field-grid');
+
+        this.playerMessage = newElement.newElement('div', 'player-field-message');
+        this.cpuMessage = newElement.newElement('div', 'player-field-message');
+        this.playerMessage.innerText = ' ';
+        this.cpuMessage.innerText = ' ';
+
+        this.stageInfo = newElement.newElement('div', 'stage-info');
+        this.tempMessages = newElement.newElement('h3', 'stage-temp-messages');
+        this.tempMessages.innerText = ' ';
+        this.stageInfo.appendChild(this.tempMessages);
+
+        this.playerField.appendChild(this.playerTitle);
+        this.playerField.appendChild(this.playerBoard);
+        this.playerField.appendChild(this.playerMessage);
+
+        this.cpuField.appendChild(this.cpuTitle);
+        this.cpuField.appendChild(this.cpuBoard);
+        this.cpuField.appendChild(this.cpuMessage);
     }
 }
 
