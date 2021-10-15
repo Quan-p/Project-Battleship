@@ -98,6 +98,13 @@ class ShipDom {
             }
         }
     }
+
+    createGameElements() {
+        this.title = newElement.newElement('div', 'game-title');
+        this.titleContent = newElement.newElement('h1', 'game-title-content');
+        this.titleContent.innerText = 'BATTLESHIP';
+        this.title.appendChild(this.titleContent);
+    }
 }
 
 export default ShipDom;
