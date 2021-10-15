@@ -90,6 +90,14 @@ class ShipDom {
     removeAllFleetButtons() {
         this.fleetWrapper.textContent = '';
     }
+
+    removeFleetButton(index) {
+        for (let i = 0; i < this.fleetWrapper.childNodes.length; i += 1) {
+            if (Number(this.fleetWrapper.childNodes[i].dataset.index) === index) {
+                this.fleetWrapper.removeChild(this.fleetWrapper.childNodes[i]);
+            }
+        }
+    }
 }
 
 export default ShipDom;
