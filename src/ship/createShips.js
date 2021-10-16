@@ -7,7 +7,7 @@ class ShipDom {
     constructor(fleet) {
         this.fleet = fleet;
         this.sendMessage = null;
-        this.resetButton = this.resetButton.bind(this);
+        this.resetGame = this.resetGame.bind(this);
         this.startGame = this.startGame.bind(this);
         this.sendRotate = this.sendRotate.bind(this);
         this.selectShipToPlace = this.selectShipToPlace.bind(this);
@@ -134,6 +134,12 @@ class ShipDom {
         this.cpuField.appendChild(this.cpuTitle);
         this.cpuField.appendChild(this.cpuBoard);
         this.cpuField.appendChild(this.cpuMessage);
+
+        this.resetField = newElement.newElement('div', 'reset-field');
+        this.resetButton = newElement.newElement('button', 'reset-field-button');
+        this.resetButton.innerText = 'RESET';
+        this.resetButton.addEventListener('click', this.resetGame);
+        this.resetField.appendChild(this.resetButton);
     }
 }
 
