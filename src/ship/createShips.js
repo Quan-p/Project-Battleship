@@ -146,14 +146,52 @@ class ShipDom {
         this.playingField.appendChild(this.cpuField);
     }
 
-        setGameplayElements() {
-            this.body.textContent = '';
-            this.body.appendChild(this.title);
-            this.body.appendChild(this.stageInfo);
-            this.body.appendChild(this.stageInfo);
+    setGameplayElements() {
+        this.body.textContent = '';
+        this.body.appendChild(this.title);
+        this.body.appendChild(this.stageInfo);
+        this.body.appendChild(this.stageInfo);
 
-            ShipDom.createGameboard(this.playerBoard);
-        }
+        ShipDom.createGameboard(this.playerBoard);
+    }
+
+    reset() {
+        this.playerMessage.innerText = '';
+        this.cpuMessage.innerText = '';
+    }
+
+    setPlayerBoard(boardState) {
+        ShipDom.setBoard(this.playerBoard, boardState, 'player', false);
+    }
+
+    setCpuBoard(boardState) {
+        ShipDom.setBoard(this.cpuBoard, boardState, 'cpu', true);
+    }
+
+    setClickEventHandler(callback) {
+        this.clickCallback = callback;
+        this.playerBoard.addEventListener('click', callback);
+        this.cpuBoard.addEventListener('click', callback);
+    }
+
+    setHoverEvent(callback) {
+        this.playerBoard.addEventListener('mouseover', callback);
+    }
+
+    setMouseLeaveEvent(callback) {
+        this.playerBoard.addEventListener('mouseleave', callback);
+    }
+
+    setRightClickEvent(callback) {
+        this.playerBoard.addEventListener('contextmenu', callback, false);
+    }
+
+    setMessageFunction(fn) {
+        this.sendMessage = fn;
+    }
+
+    resetGame() {
+        this.sendMessage(GameMessages.ResetGame);
     }
 }
 
