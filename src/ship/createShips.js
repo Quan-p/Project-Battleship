@@ -37,7 +37,7 @@ class ShipDom {
     }
 
     createElementsForShipPlacement() {
-        this.playSpace = newElement.newElement('div', 'play-space');
+        this.placementPreviewSpace = newElement.newElement('div', 'placement-preview-space');
 
         this.rotateButton = newElement.newElement('button', 'rotate-button');
         this.rotateButton.innerText = ' ROTATE';
@@ -53,9 +53,9 @@ class ShipDom {
 
         this.addFleetButtons();
 
-        this.playSpace.appendChild(this.rotateButton);
-        this.playSpace.appendChild(this.testGrid);
-        this.playSpace.appendChild(this.fleetWrapper);
+        this.placementPreviewSpace.appendChild(this.rotateButton);
+        this.placementPreviewSpace.appendChild(this.testGrid);
+        this.placementPreviewSpace.appendChild(this.fleetWrapper);
         this.testGrid.appendChild(this.testShip);
     }
 
@@ -140,6 +140,20 @@ class ShipDom {
         this.resetButton.innerText = 'RESET';
         this.resetButton.addEventListener('click', this.resetGame);
         this.resetField.appendChild(this.resetButton);
+
+        this.playingField.appendChild(this.playerField);
+        this.playingField.appendChild(this.placementPreviewSpace);
+        this.playingField.appendChild(this.cpuField);
+    }
+
+        setGameplayElements() {
+            this.body.textContent = '';
+            this.body.appendChild(this.title);
+            this.body.appendChild(this.stageInfo);
+            this.body.appendChild(this.stageInfo);
+
+            ShipDom.createGameboard(this.playerBoard);
+        }
     }
 }
 
