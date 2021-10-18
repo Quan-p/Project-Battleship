@@ -193,6 +193,15 @@ class ShipDom {
     resetGame() {
         this.sendMessage(GameMessages.ResetGame);
     }
+
+    static createGameboard(board) {
+        for (let i = 0; i < BoardSize; i += 1) {
+            for (let j = 0; j < BoardSize; j += 1) {
+                const square = newElement.newElement('div', ['battleship-square-empty', 'battleship-square']);
+                board.appendChild(square);
+            }
+        }
+    }
 }
 
 export default ShipDom;
