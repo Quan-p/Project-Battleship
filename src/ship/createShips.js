@@ -248,7 +248,43 @@ class ShipDom {
         }
     }
 
-    
+    getPlayerMove(row, col, status) {
+        ShipDom.getMove(row, col, status, this.cpuBoard);
+        if (status === AttackStatus.sunk) {
+            this.sendMessage(GameMessages.DrawCpuBoard);
+        }
+        this.setCpuMessage(status);
+    }
+
+    getCpuMove(row, col, status) {
+        ShipDom.getMove(row, col, status, this.playerBoard);
+        if (status === AttackStatus.sunk) {
+            this.sendMessage(GameMessages.DrawPlayerBoard);
+        }
+        this.setPlayerMessage(status);
+    }
+
+    static getMove(row, col, status, board) {
+        const squares = board.querySelectorAll('.battleship-square');
+
+        for (let i = 0; i < squares.length; i += 1) {
+            if (
+                Number(squares[i].dataset.row) === row
+                && Number(squares[i].dataset.col) === col
+            ) {
+                squares[i].className = '';
+                squares[i].classList.add('battleship-square');
+
+                if (Number(status) === AttackStatus.hit) {
+                    squares[i].classList.add('battleship-square--ship-hit');
+                } else if (Number(status) === AttackStatus.sunk) {
+                    squares[i].classList.add('battleship-square--ship-sunk');
+                } else if (Number(status) === AttackStatus.miss) {
+                    squares[i].classList.add('battleship-square--empty-hit');
+                } break;
+            }
+        }
+    }
 }
 
 export default ShipDom;
