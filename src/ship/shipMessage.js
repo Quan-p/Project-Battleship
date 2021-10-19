@@ -12,7 +12,7 @@ const GameState = {
 
 const GameMessages = {
     StartGame: 0,
-    DrawCompBoard: 1,
+    DrawCpuBoard: 1,
     DrawPlayerBoard: 2,
     ResetGame: 3,
     Rotate: 4,
