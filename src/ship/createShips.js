@@ -197,11 +197,58 @@ class ShipDom {
     static createGameboard(board) {
         for (let i = 0; i < BoardSize; i += 1) {
             for (let j = 0; j < BoardSize; j += 1) {
-                const square = newElement.newElement('div', ['battleship-square-empty', 'battleship-square']);
+                const square = newElement.newElement('div', ['battleship-square--empty', 'battleship-square']);
                 board.appendChild(square);
             }
         }
     }
+
+    static setBoard(board, boardState, player, hidden) {
+        while (board.lastChild) {
+            board.removeChild(board.firstChild);
+        }
+
+        for (let i = 0; i < boardState.length; i += 1) {
+            for (let j = 0; j < boardState[i].length; j += 1) {
+                const square = newElement.newElement('div');
+                square.dataset.row = i;
+                square.dataset.col = j;
+                square.dataset.board = player;
+                square.classList.add('battleship-square');
+
+                switch (boardState[i][j]) {
+                case BoardSpaceStatus.empty: {
+                    square.classList.add('battleship-square--empty');
+                    break;
+                }
+                case BoardSpaceStatus.emptyHit: {
+                    square.classList.add('battleship-square--empty-hit');
+                    break;
+                }
+                case BoardSpaceStatus.ship: {
+                    if (!hidden) {
+                        square.classList.add('battleship-square--ship');
+                    } else {
+                        square.classList.add('battleship-square--empty');
+                    }
+                    break;
+                }
+                case BoardSpaceStatus.shipHit: {
+                    square.classList.add('battleship-square--ship-hit');
+                    break;
+                }
+                case BoardSpaceStatus.shipSunk: {
+                    square.classList.add('battleship-square--ship-sunk');
+                    break;
+                }
+                default: break;
+                }
+                board.appendChild(square);
+            }
+        }
+    }
+
+    
 }
 
 export default ShipDom;
