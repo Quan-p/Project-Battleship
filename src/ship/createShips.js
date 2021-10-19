@@ -376,6 +376,10 @@ class ShipDom {
     showCpuBoard() {
         this.cpuField.classList.remove('hidden');
     }
+
+    startGame() {
+        this.sendMessage(GameMessages.StartGame);
+    }
 }
 
 export default ShipDom;
