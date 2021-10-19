@@ -380,6 +380,14 @@ class ShipDom {
     startGame() {
         this.sendMessage(GameMessages.StartGame);
     }
+
+    smallPlayerBoard() {
+        this.playerBoard.classList.add('battleship-player-field_battleship-grid--mini');
+    }
+
+    normalPlayerBoard() {
+        this.playerBoard.classList.remove('battleship-player-field_battleship-grid--mini');
+    }
 }
 
 export default ShipDom;
