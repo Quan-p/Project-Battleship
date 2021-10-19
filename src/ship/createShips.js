@@ -1,6 +1,6 @@
 import newElement from '../createElement';
 import {
-    GameMessages, BoardSpaceStatus, AttackStatus, BoardSize, Direction 
+    GameMessages, BoardSpaceStatus, AttackStatus, BoardSize, Direction,
 } from './shipMessage';
 
 class ShipDom {
@@ -431,6 +431,18 @@ class ShipDom {
             this.testShip.style.gridColumn = `${colStart}`;
             this.testShip.style.gridRow = `${rowStart} / span ${length}`;
         }
+    }
+
+    sendRotate() {
+        this.sendMessage(GameMessages.Rotate);
+    }
+
+    hidePlacementOptions() {
+        this.fleetWrapper.style.display = 'none';
+    }
+
+    showPlacementOptions() {
+        this.fleetWrapper.style.display = 'flex';
     }
 }
 
