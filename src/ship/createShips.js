@@ -368,6 +368,14 @@ class ShipDom {
             squares[i].classList.remove('battleship-square--place-highlight-invalid');
         }
     }
+
+    hideCpuBoard() {
+        this.cpuField.classList.add('hidden');
+    }
+
+    showCpuBoard() {
+        this.cpuField.classList.remove('hidden');
+    }
 }
 
 export default ShipDom;
