@@ -333,6 +333,41 @@ class ShipDom {
         }
         this.cpuMessage.innerHTML = `${message1}${message2}${message3}`;
     }
+
+    dispayMessage(value) {
+        if (value === '') {
+            this.tempMessages.style.display = 'none';
+        } else {
+            this.tempMessages.style.display = 'block';
+        }
+        this.tempMessages.innerText = value;
+    }
+
+    highlightSquares(squaresToHighlight, valid) {
+        if (squaresToHighlight !== undefined) {
+            const squares = this.playerBoard.querySelectorAll('.battleship-square');
+            for (let i = 0; i < squares.length; i += 1) {
+                for (let j = 0; j < squaresToHighlight.length; j += 1) {
+                    if (Number(squares[j].dataset.row) === squaresToHighlight[j].rowVar
+                    && Number(squares[j].dataset.col) === squaresToHighlight[j].colVar) {
+                        if (valid) {
+                            squares[i].classList.add('battleship-square--place-highlight');
+                        } else {
+                            squares[i].classList.add('battleship-square--place-highlight-invalid');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    removeHighlightSquares() {
+        const squares = this.playerBoard.querySelectorAll('.battleship-square');
+        for (let i = 0; i < squares.length; i += 1) {
+            squares[i].classList.remove('battleship-square--place-highlight');
+            squares[i].classList.remove('battleship-square--place-highlight-invalid');
+        }
+    }
 }
 
 export default ShipDom;
