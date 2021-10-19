@@ -388,6 +388,50 @@ class ShipDom {
     normalPlayerBoard() {
         this.playerBoard.classList.remove('battleship-player-field_battleship-grid--mini');
     }
+
+    rotateTestShip(length, direction) {
+        let colStart = 1;
+        let rowStart = 1;
+        // possible issue here in future
+        switch (length) {
+        case 1: {
+            colStart = 3;
+            rowStart = 3;
+            break;
+        }
+        case 2: {
+            if (direction === Direction.left || direction === Direction.right) {
+                colStart = 2;
+                rowStart = 2;
+            } else {
+                colStart = 3;
+                rowStart = 3;
+            }
+            break;
+        }
+        case 3: {
+            if (direction === Direction.left || direction === Direction.right) {
+                colStart = 1;
+                rowStart = 3;
+            } else {
+                colStart = 3;
+                rowStart = 1;
+            }
+            break;
+        }
+        default: {
+            break;
+        }
+        }
+
+        if (direction === Direction.left || direction === Direction.right) {
+            this.testShip.style.gridColumn = `${colStart}${rowStart}`;
+            this.testShip.style.gridRow = `${rowStart}`;
+        } else {
+            this.testShip.style.gridColumn = `${colStart}`;
+            this.testShip.style.gridRow = `${rowStart} / span ${length}`;
+        }
+    }
 }
 
 export default ShipDom;
