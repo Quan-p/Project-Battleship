@@ -1,4 +1,4 @@
-import GameBoard from '../gameboard/gameboard';
+import GameBoard from '../gameboard/gameBoard';
 import Ship from '../ship/ship';
 import { Direction, AttackStatus } from '../ship/shipMessage';
 
