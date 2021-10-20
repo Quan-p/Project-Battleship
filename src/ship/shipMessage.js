@@ -42,6 +42,14 @@ const AttackStatus = {
 
 const BoardSize = 8;
 
+const ShipNames = [
+    'Carrier',
+    'Battleship',
+    'Cruiser',
+    'Submarine',
+    'Destroyer',
+];
+
 export {
     GameState,
     GameMessages,
@@ -49,4 +57,5 @@ export {
     Direction,
     AttackStatus,
     BoardSize,
+    ShipNames,
 };
