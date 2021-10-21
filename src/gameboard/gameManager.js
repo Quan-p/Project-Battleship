@@ -114,6 +114,39 @@ class GameManager {
         this.cpuBoard.addShip(cpuCruiser, 7, 3, Direction.up);
         this.cpuBoard.addShip(cpuDestroyer, 7, 4, Direction.up);
     }
+
+    doSetup() {
+        const cpuCarrier = new Ship(5);
+        const cpuBattleship = new Ship(4);
+        const cpuSubmarine = new Ship(3);
+        const cpuCruiser = new Ship(3);
+        const cpuDestroyer = new Ship(2);
+
+        GameManager.randomizeShipPlacement([
+            cpuCarrier,
+            cpuBattleship,
+            cpuSubmarine,
+            cpuCruiser,
+            cpuDestroyer,
+        ], this.cpuBoard);
+
+        this.battleshipDom.setPlayerBoard(this.playerBoard.boardState);
+        this.battleshipDom.setCpuBoard(this.cpuBoard.boardState);
+    }
+
+    static randomizeShipPlacement(ships, board) {
+        for (let i = 0; i < ships.length; i += 1) {
+            let validPlacement = false;
+
+            while (!validPlacement) {
+                const row = Math.round(Math.random() * 7);
+                const col = Math.round(Math.random() * 7);
+                const dir = Math.round(Math.random() * 3);
+
+                validPlacement = board.addShip(ships[i], row, col, dir);
+            }
+        }
+    }
 }
 
 export default GameManager;
