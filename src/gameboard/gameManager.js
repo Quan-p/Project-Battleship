@@ -32,6 +32,23 @@ class GameManager {
             cruiser,
             destroyer,
         ];
+
+        const fleetDom = this.playerShips.map(GameManager.shipsToFleetDom);
+
+        this.battleshipDom = new ShipDom(fleetDom);
+        this.battleshipDom.setClickEventHandler(this.clickSquare);
+        this.battleshipDom.setHoverEventHandler(this.hoverSquare);
+        this.battleshipDom.setMouseLeaveEventHandler(this.leaveSquare);
+        this.battleshipDom.setMessageFunction(this.receiveMessage);
+        this.battleshipDom.setClickEventHandler(this.rotateShip);
+        this.battleshipDom.setShip(this.setPlacementIndex);
+
+        this.testMode = false;
+        this.playerWon = false;
+    }
+
+    static shipsToFleetDom(element, i) {
+        return { length: element.length, name: ShipNames[i] };
     }
 }
 
