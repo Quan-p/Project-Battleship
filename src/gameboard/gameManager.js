@@ -50,6 +50,32 @@ class GameManager {
     static shipsToFleetDom(element, i) {
         return { length: element.length, name: ShipNames[i] };
     }
+
+    init() {
+        this.placementDirection = Direction.right;
+        this.placementComplete = new Array(this.playerShips.length);
+        for (let i = 0; i < this.placementComplete.length; i += 1) {
+            this.placementComplete[i] = false;
+        }
+
+        for (let i = 0; i < playerShips.length; i += 1) {
+            this.playerShips[i].reset();
+        }
+
+        this.setPlacementIndex(0);
+
+        this.playerBoard = new GameBoard();
+        this.cpuBoard = new GameBoard();
+
+        this.battleshipDom.reset();
+        this.battleshipDom.setCpuBoard(this.cpuBoard.boardState);
+        this.battleshipDom.setPlayerBoard(this.playerBoard.boardState);
+        this.battleshipDom.dispayMessage('');
+
+        this.updateDomShipProxy();
+
+        this.gameState = this.GameState.placeShips;
+    }
 }
 
 export default GameManager;
