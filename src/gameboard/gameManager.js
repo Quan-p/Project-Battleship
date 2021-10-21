@@ -18,9 +18,21 @@ class GameManager {
         this.rotateShip = this.rotateShip.bind(this);
         this.cpuTurn = this.cpuTurn.bind(this);
         this.setPlacementIndex = this.setPlacementIndex.bind(this);
+
+        const carrier = new Ship(5);
+        const battleship = new Ship(4);
+        const submarine = new Ship(3);
+        const cruiser = new Ship(3);
+        const destroyer = new Ship(2);
+
+        const playerShips = [
+            carrier,
+            battleship,
+            submarine,
+            cruiser,
+            destroyer,
+        ];
     }
 }
-
-
 
 export default GameManager;
