@@ -147,6 +147,18 @@ class GameManager {
             }
         }
     }
+
+    gameEnd() {
+        if (this.playerBoard.checkAllShipsSunk()) {
+            this.playerWon = false;
+            return true;
+        }
+        if (this.cpuBoard.checkAllShipsSunk()) {
+            this.playerWon = true;
+            return true;
+        }
+        return false;
+    }
 }
 
 export default GameManager;
