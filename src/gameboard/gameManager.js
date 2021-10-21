@@ -76,6 +76,44 @@ class GameManager {
 
         this.gameState = this.GameState.placeShips;
     }
+
+    set testMode(value) {
+        this.testMode = value;
+    }
+
+    startGame() {
+        if (this.testMode) {
+            this.doTestSetup();
+        } else {
+            this.doSetup();
+        }
+    }
+
+    doTestSetup() {
+        const playerCarrier = new Ship(5);
+        const playerBattleship = new Ship(4);
+        const playerSubmarine = new Ship(3);
+        const playerCruiser = new Ship(3);
+        const playerDestroyer = new Ship(2);
+
+        const cpuCarrier = new Ship(5);
+        const cpuBattleship = new Ship(4);
+        const cpuSubmarine = new Ship(3);
+        const cpuCruiser = new Ship(3);
+        const cpuDestroyer = new Ship(2);
+
+        this.playerBoard.addShip(playerCarrier, 0, 0, Direction.down);
+        this.playerBoard.addShip(playerBattleship, 0, 1, Direction.down);
+        this.playerBoard.addShip(playerSubmarine, 0, 2, Direction.down);
+        this.playerBoard.addShip(playerCruiser, 0, 3, Direction.down);
+        this.playerBoard.addShip(playerDestroyer, 0, 4, Direction.down);
+
+        this.cpuBoard.addShip(cpuCarrier, 7, 0, Direction.up);
+        this.cpuBoard.addShip(cpuBattleship, 7, 1, Direction.up);
+        this.cpuBoard.addShip(cpuSubmarine, 7, 2, Direction.up);
+        this.cpuBoard.addShip(cpuCruiser, 7, 3, Direction.up);
+        this.cpuBoard.addShip(cpuDestroyer, 7, 4, Direction.up);
+    }
 }
 
 export default GameManager;
