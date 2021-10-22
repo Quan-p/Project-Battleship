@@ -208,6 +208,20 @@ class GameManager {
             }
         }
     }
+
+    updatePostShipSelect() {
+        const message = `Place your ${ShipNames[this.placeShipIndex]}`;
+        this.battleshipDom.dispayMessage(message);
+        this.battleshipDom.focusFleetButton(this.placeShipIndex);
+        this.updateDomShipProxy();
+    }
+
+    updateDomShipProxy() {
+        this.battleshipDom.rotateTestShip(
+            this.playerShips[this.placeShipIndex].length,
+            this.placementDirection,
+        );
+    }
 }
 
 export default GameManager;
