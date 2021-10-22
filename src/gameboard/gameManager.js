@@ -159,6 +159,55 @@ class GameManager {
         }
         return false;
     }
+
+    // logic for when player clicks a square
+    clickSquare(e) {
+        if (this.gameState === GameState.playerTurn) {
+            if (e.target.dataset.board === 'cpu') {
+                this.playerSelection({
+                    row: Number(e.target.dataset.row),
+                    col: Number(e.target.dataset.col),
+                });
+            }
+        } else if (this.gameState === 'player') {
+            if (e.target.dataset.board === 'player') {
+                if (
+                    this.playerBoard.isValidPlacement(
+                        this.placeShips[this.placeShipIndex],
+                        Number(e.target.dataset.row),
+                        Number(e.target.dataset.col),
+                        this.placementDirection,
+                    )
+                ) {
+                    this.playerBoard.addShip(
+                        this.playerShips[this.placeShipIndex],
+                        Number(e.target.dataset.row),
+                        Number(e.target.dataset.col),
+                        this.placementDirection,
+                    );
+
+                    this.placementComplete[this.placeShipIndex] = true;
+                    this.battleshipDom.removeFleetButton(this.placeShipIndex);
+
+                    let allTrue = true;
+                    for (let i = 0; i < this.placementComplete.length; i += 1) {
+                        if (this.placementComplete[i] === false) {
+                            this.placeShipIndex = i;
+                            allTrue = false;
+                            break;
+                        }
+                    }
+                    this.battleshipDom.setPlayerBoard(this.playerBoard.boardState);
+
+                    if (allTrue) {
+                        this.gameState = GameState.preGame;
+                    } else {
+                        this.updatePostShipSelect();
+                    }
+                }
+            }
+        }
+    }
 }
 
 export default GameManager;
