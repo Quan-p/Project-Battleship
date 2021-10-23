@@ -250,6 +250,32 @@ class GameManager {
             }
         }
     }
+
+    leaveSquare() {
+        if (this.gameState === GameState.placeShips) {
+            this.battleshipDom.removeHighlightSquares();
+        }
+    }
+
+    rotateShip(e) {
+        if (e != null && e !== undefined) {
+            e.preventDefault();
+        }
+
+        if (this.placementDirection !== Direction.up) {
+            this.placementDirection += 1;
+        } else {
+            this.placementDirection = Direction.right;
+        }
+
+        if (e !== null && e !== undefined) {
+            this.leaveSquare();
+            this.hoverSquare(e);
+        }
+
+        this.updateDomShipProxy();
+        return false;
+    }
 }
 
 export default GameManager;
