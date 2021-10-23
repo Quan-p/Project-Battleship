@@ -222,6 +222,34 @@ class GameManager {
             this.placementDirection,
         );
     }
+
+    hoverSquare(e) {
+        if (this.gameState === GameState.placeShips) {
+            if (e.target.dataset.row !== this.cachedRow
+                || e.target.dataset.col !== this.cachedCol) {
+                this.battleshipDom.removeHighlightSquares();
+            }
+            this.cachedRow = e.target.dataset.row;
+            this.cachedCol = e.target.dataset.col;
+            if (e.target.classList.contains('battleship-square')) {
+                const row = Number(e.target.dataset.row);
+                const col = Number(e.target.dataset.col);
+                if (this.playerBoard.isValidPlacement(this.playerShips[this.placeShipIndex],
+                    row,
+                    col,
+                    this.placementDirection)
+                ) {
+                    const squaresToHighlight = GameBoard.getCoordsToCheck(
+                        this.playerShips[this.placeShipIndex],
+                        row,
+                        col,
+                        this.placementDirection,
+                    );
+                    this.battleshipDom.highlightSquares(squaresToHighlight, false);
+                }
+            }
+        }
+    }
 }
 
 export default GameManager;
