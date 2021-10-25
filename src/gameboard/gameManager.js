@@ -57,7 +57,7 @@ class GameManager {
         for (let i = 0; i < this.placementComplete.length; i += 1) {
             this.placementComplete[i] = false;
         }
-
+        // not sure why the player ship array is undefined here, see constructor above
         for (let i = 0; i < playerShips.length; i += 1) {
             this.playerShips[i].reset();
         }
@@ -275,6 +275,22 @@ class GameManager {
 
         this.updateDomShipProxy();
         return false;
+    }
+
+    playerSelection(selection) {
+        const selectionStatus = this.cpuBoard.receiveAttack(selection.row, selection.col);
+
+        if (selectionStatus !== AttackStatus.invalid) {
+            this.gameState = GameState.transition;
+            this.setDomPlayerMove(selection.row, selection.col, selectionStatus);
+
+            if (this.gameEnd()) {
+                this.doGameEnd();
+            } else {
+                this.gameState = GameState.cpuTurn;
+                setTimeout(this.doCpuTurn, 300);
+            }
+        }
     }
 }
 
