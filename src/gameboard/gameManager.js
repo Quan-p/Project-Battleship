@@ -321,6 +321,17 @@ class GameManager {
     setDomCpuMove(row, col, status) {
         this.battleshipDom.getCpuMove(row, col, status);
     }
+
+    doGameEnd() {
+        this.gameState = GameState.gameEnd;
+        let stateWin = '';
+        if (this.playerWon) {
+            stateWin = 'You Won!';
+        } else {
+            stateWin = 'You Lose.';
+        }
+        this.battleshipDom.displayMessage(`Game Over. ${stateWin}`);
+    }
 }
 
 export default GameManager;
