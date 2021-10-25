@@ -317,6 +317,10 @@ class GameManager {
             this.gameState = GameState.playerTurn;
         }
     }
+
+    setDomCpuMove(row, col, status) {
+        this.battleshipDom.getCpuMove(row, col, status);
+    }
 }
 
 export default GameManager;
