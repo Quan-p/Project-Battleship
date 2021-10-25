@@ -288,13 +288,34 @@ class GameManager {
                 this.doGameEnd();
             } else {
                 this.gameState = GameState.cpuTurn;
-                setTimeout(this.doCpuTurn, 300);
+                setTimeout(this.startCpuTurn, 300);
             }
         }
     }
 
     setDomPlayerMove(row, col, status) {
         this.battleshipDom.getPlayerMove(row, col, status);
+    }
+
+    startCpuTurn() {
+        const selectionStatus = AttackStatus.invalid;
+        let row = -1;
+        let col = -1;
+        while (selectionStatus === AttackStatus.invalid) {
+            row = Math.round(Math.random() * 7);
+            col = Math.round(Math.random() * 7);
+
+            selectionStatus.this.playerBoard.receiveAttack(row, col);
+        }
+
+        this.gameState = GameState.transition;
+        this.setDomCpuMove(row, col, selectionStatus);
+
+        if (this.gameEnd()) {
+            this.doGameEnd();
+        } else {
+            this.gameState = GameState.playerTurn;
+        }
     }
 }
 
