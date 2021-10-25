@@ -292,6 +292,10 @@ class GameManager {
             }
         }
     }
+
+    setDomPlayerMove(row, col, status) {
+        this.battleshipDom.getPlayerMove(row, col, status);
+    }
 }
 
 export default GameManager;
