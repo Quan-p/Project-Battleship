@@ -25,13 +25,7 @@ class GameManager {
         const cruiser = new Ship(3);
         const destroyer = new Ship(2);
 
-        const playerShips = [
-            carrier,
-            battleship,
-            submarine,
-            cruiser,
-            destroyer,
-        ];
+        const playerShips = [carrier, battleship, submarine, cruiser, destroyer];
 
         const fleetDom = this.playerShips.map(GameManager.shipsToFleetDom);
 
