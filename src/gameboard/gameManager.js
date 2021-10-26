@@ -25,7 +25,7 @@ class GameManager {
         const playerCruiser = new Ship(3);
         const playerDestroyer = new Ship(2);
 
-        const playerShips = [
+        this.playerShips = [
             playerCarrier,
             playerBattleship,
             playerSubmarine,
