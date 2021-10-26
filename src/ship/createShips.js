@@ -150,7 +150,8 @@ class ShipDom {
         this.body.textContent = '';
         this.body.appendChild(this.title);
         this.body.appendChild(this.stageInfo);
-        this.body.appendChild(this.stageInfo);
+        this.body.appendChild(this.playingField);
+        this.body.appendChild(this.resetField);
 
         ShipDom.createGameboard(this.playerBoard);
     }
