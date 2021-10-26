@@ -378,6 +378,38 @@ class GameManager {
             this.updatePostShipSelect();
         }
     }
+
+    // proxy for tests
+    set gameState(value) {
+        this.gameState = value;
+
+        if (this.gameState === GameState.preGame) {
+            this.gameState = GameState.gameStart;
+            this.startGame();
+            this.battleshipDom.displayMessage('Attack your opponent');
+        }
+        if (this.gameState === GameState.reset) {
+            this.battleshipDom.normalPlayerBoard();
+            this.battleshipDom.showPlacementOptions();
+        } else if (this.gameState === GameState.gameStart) {
+            this.battleshipDom.smallPlayerBoard();
+            this.battleshipDom.hidePlacementOptions();
+            this.gameState = GameState.playerTurn;
+        } else if (this.gameState === GameState.placeShips) {
+            const message = `Place your ${ShipNames[this.placeShipIndex]}`;
+            this.battleshipDom.displayMessage(message);
+            // only show player board when placing ships
+            this.battleshipDom.hideCpuBoard();
+        } else if (this.gameState === GameState.playerTurn) {
+            this.battleshipDom.showCpuBoard();
+        } else if (this.gameState === GameState.transition) {
+            this.battleshipDom.dispayMessage('');
+        }
+    }
+
+    get gameState() {
+        return this.gameState;
+    }
 }
 
 export default GameManager;
