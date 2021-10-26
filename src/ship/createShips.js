@@ -175,7 +175,7 @@ class ShipDom {
         this.cpuBoard.addEventListener('click', callback);
     }
 
-    setHoverEvent(callback) {
+    setHoverEventHandler(callback) {
         this.playerBoard.addEventListener('mouseover', callback);
     }
 
