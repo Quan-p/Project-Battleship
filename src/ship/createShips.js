@@ -179,11 +179,11 @@ class ShipDom {
         this.playerBoard.addEventListener('mouseover', callback);
     }
 
-    setMouseLeaveEvent(callback) {
+    setMouseLeaveEventHandler(callback) {
         this.playerBoard.addEventListener('mouseleave', callback);
     }
 
-    setRightClickEvent(callback) {
+    setRightClickEventHandler(callback) {
         this.playerBoard.addEventListener('contextmenu', callback, false);
     }
 
