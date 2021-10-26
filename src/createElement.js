@@ -1,14 +1,14 @@
 class newElement {
-    static newElement(selector, className) {
-        const element = document.newElement(selector);
+    static createElement(selector, classNames) {
+        const element = document.createElement(selector);
 
-        if (className !== undefined) {
-            if (Array.isArray(className)) {
-                for (let i = 0; i < className.length; i += 1) {
-                    element.classList.add(className[i]);
+        if (classNames !== undefined) {
+            if (Array.isArray(classNames)) {
+                for (let i = 0; i < classNames.length; i += 1) {
+                    element.classList.add(classNames[i]);
                 }
             } else {
-                element.classList.add(className);
+                element.classList.add(classNames);
             }
         }
         return element;
