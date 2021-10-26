@@ -363,6 +363,14 @@ class GameManager {
             break;
         }
     }
+
+    resetMessage() {
+        this.gameState = GameState.reset;
+        this.init();
+        this.battleshipDom.removeAllFleetButtons();
+        this.battleshipDom.addFleetButtons();
+        this.setPlacementIndex(0);
+    }
 }
 
 export default GameManager;
