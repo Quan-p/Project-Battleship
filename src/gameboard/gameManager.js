@@ -167,7 +167,7 @@ class GameManager {
             if (e.target.dataset.board === 'player') {
                 if (
                     this.playerBoard.isValidPlacement(
-                        this.placeShips[this.placeShipIndex],
+                        this.playerShips[this.placeShipIndex],
                         Number(e.target.dataset.row),
                         Number(e.target.dataset.col),
                         this.placementDirection,
