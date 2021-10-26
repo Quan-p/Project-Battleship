@@ -16,7 +16,7 @@ class GameManager {
         this.leaveSquare = this.leaveSquare.bind(this);
         this.receiveMessage = this.receiveMessage.bind(this);
         this.rotateShip = this.rotateShip.bind(this);
-        this.cpuTurn = this.cpuTurn.bind(this);
+        this.startCpuTurn = this.startCpuTurn.bind(this);
         this.setPlacementIndex = this.setPlacementIndex.bind(this);
 
         const carrier = new Ship(5);
