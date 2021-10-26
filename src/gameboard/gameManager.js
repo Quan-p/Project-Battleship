@@ -332,6 +332,37 @@ class GameManager {
         }
         this.battleshipDom.displayMessage(`Game Over. ${stateWin}`);
     }
+
+    receiveMessage(msg) {
+        switch (msg) {
+        case GameMessages.StartGame: {
+            this.battleshipDom.setGameplayElements();
+            this.init();
+            break;
+        }
+        case GameMessages.DrawCpuBoard: {
+            this.battleshipDom.setCpuBoard(this.cpuBoard.boardState);
+            break;
+        }
+        case GameMessages.DrawPlayerBoard: {
+            this.battleshipDom.setPlayerBoard(this.playerBoard.boardState);
+            break;
+        }
+        case GameMessages.ResetGame: {
+            this.resetMessage();
+            break;
+        }
+        case GameMessages.Rotate: {
+            if (this.gameState === GameState.placeShips) {
+                this.rotateShip();
+                this.updateDomShipProxy();
+            }
+            break;
+        }
+        default:
+            break;
+        }
+    }
 }
 
 export default GameManager;
