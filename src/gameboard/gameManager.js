@@ -371,6 +371,13 @@ class GameManager {
         this.battleshipDom.addFleetButtons();
         this.setPlacementIndex(0);
     }
+
+    setPlacementIndex(indexValue) {
+        if (this.placementComplete[indexValue] === false) {
+            this.placeShipIndex = indexValue;
+            this.updatePostShipSelect();
+        }
+    }
 }
 
 export default GameManager;
