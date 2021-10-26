@@ -11,18 +11,18 @@ class ShipDom {
         this.startGame = this.startGame.bind(this);
         this.sendRotate = this.sendRotate.bind(this);
         this.selectShipToPlace = this.selectShipToPlace.bind(this);
-        this.body = document.querySelectorAll('body');
+        this.body = document.querySelector('body');
 
         this.createElementsForShipPlacement();
-        this.createElementsForGame();
+        this.createGameElements();
         this.createElementsForStartPage();
     }
 
     createElementsForStartPage() {
-        this.introParent = newElement.newElement('div', 'intro');
-        this.introTitle = newElement.newElement('h1', 'intro-title');
-        this.introMessage = newElement.newElement('p', 'intro-message');
-        this.introButton = newElement.newElement('button', 'intro-button');
+        this.introParent = newElement.createElement('div', 'intro');
+        this.introTitle = newElement.createElement('h1', 'intro-title');
+        this.introMessage = newElement.createElement('p', 'intro-message');
+        this.introButton = newElement.createElement('button', 'intro-button');
 
         this.introTitle.innerText = 'BATTLESHIP';
         this.introMessage.innerText = "Please place the 5 ships of your fleet on the board.  To win, be the first to sink all 5 of your opponent's ships";
@@ -32,23 +32,23 @@ class ShipDom {
         this.introParent.appendChild(this.introTitle);
         this.introParent.appendChild(this.introMessage);
         this.introParent.appendChild(this.introButton);
-        // this.body.textContent = '';
+        this.body.textContent = '';
         this.body.appendChild(this.introParent);
     }
 
     createElementsForShipPlacement() {
-        this.placementPreviewSpace = newElement.newElement('div', 'placement-preview-space');
+        this.placementPreviewSpace = newElement.createElement('div', 'placement-preview-space');
 
-        this.rotateButton = newElement.newElement('button', 'rotate-button');
+        this.rotateButton = newElement.createElement('button', 'rotate-button');
         this.rotateButton.innerText = ' ROTATE';
         this.rotateButton.addEventListener('click', this.sendRotate);
 
-        this.testGrid = newElement.newElement('div', 'test-grid');
+        this.testGrid = newElement.createElement('div', 'test-grid');
         for (let i = 0; i < 25; i += 1) {
-            this.testGrid.appendChild(newElement.newElement('div', 'testGrid-empty'));
+            this.testGrid.appendChild(newElement.createElement('div', 'testGrid-empty'));
         }
-        this.testShip = newElement.newElement('div', 'test-ship');
-        this.fleetWrapper = newElement.newElement('div', 'fleet-wrapper');
+        this.testShip = newElement.createElement('div', 'test-ship');
+        this.fleetWrapper = newElement.createElement('div', 'fleet-wrapper');
         this.fleetWrapper.addEventListener('click', this.selectShipToPlace);
 
         this.addFleetButtons();
@@ -79,7 +79,7 @@ class ShipDom {
 
     addFleetButtons() {
         for (let i = 0; i < this.fleet.length; i += 1) {
-            const btn = newElement.newElement('button', 'fleet-wrapper-button');
+            const btn = newElement.createElement('button', 'fleet-wrapper-button');
             // btn.style.gridColumn = `1 / span ${this.fleet[i].length}';
             // style this separately
             btn.dataset.index = i;
@@ -100,30 +100,30 @@ class ShipDom {
     }
 
     createGameElements() {
-        this.title = newElement.newElement('div', 'game-title');
-        this.titleContent = newElement.newElement('h1', 'game-title-content');
+        this.title = newElement.createElement('div', 'game-title');
+        this.titleContent = newElement.createElement('h1', 'game-title-content');
         this.titleContent.innerText = 'BATTLESHIP';
         this.title.appendChild(this.titleContent);
 
-        this.playingField = newElement.newElement('div', 'playing-field');
-        this.playerField = newElement.newElement('div', 'player-field');
-        this.cpuField = newElement.newElement('div', 'player-field');
-        this.playerTitle = newElement.newElement('h2', 'player-title');
-        this.playerTitle = newElement.newElement('h2', 'player-title');
-        this.cpuTitle = newElement.newElement('h2', 'player-title');
+        this.playingField = newElement.createElement('div', 'playing-field');
+        this.playerField = newElement.createElement('div', 'player-field');
+        this.cpuField = newElement.createElement('div', 'player-field');
+        this.playerTitle = newElement.createElement('h2', 'player-title');
+        this.playerTitle = newElement.createElement('h2', 'player-title');
+        this.cpuTitle = newElement.createElement('h2', 'player-title');
         this.playerTitle.innerText = 'YOUR WATERS';
         this.cpuTitle.innerText = 'CPU WATERs';
 
-        this.playerBoard = newElement.newElement('div', 'player-field-grid');
-        this.cpuBoard = newElement.newElement('div', 'player-field-grid');
+        this.playerBoard = newElement.createElement('div', 'player-field-grid');
+        this.cpuBoard = newElement.createElement('div', 'player-field-grid');
 
-        this.playerMessage = newElement.newElement('div', 'player-field-message');
-        this.cpuMessage = newElement.newElement('div', 'player-field-message');
+        this.playerMessage = newElement.createElement('div', 'player-field-message');
+        this.cpuMessage = newElement.createElement('div', 'player-field-message');
         this.playerMessage.innerText = ' ';
         this.cpuMessage.innerText = ' ';
 
-        this.stageInfo = newElement.newElement('div', 'stage-info');
-        this.tempMessages = newElement.newElement('h3', 'stage-temp-messages');
+        this.stageInfo = newElement.createElement('div', 'stage-info');
+        this.tempMessages = newElement.createElement('h3', 'stage-temp-messages');
         this.tempMessages.innerText = ' ';
         this.stageInfo.appendChild(this.tempMessages);
 
@@ -135,8 +135,8 @@ class ShipDom {
         this.cpuField.appendChild(this.cpuBoard);
         this.cpuField.appendChild(this.cpuMessage);
 
-        this.resetField = newElement.newElement('div', 'reset-field');
-        this.resetButton = newElement.newElement('button', 'reset-field-button');
+        this.resetField = newElement.createElement('div', 'reset-field');
+        this.resetButton = newElement.createElement('button', 'reset-field-button');
         this.resetButton.innerText = 'RESET';
         this.resetButton.addEventListener('click', this.resetGame);
         this.resetField.appendChild(this.resetButton);
@@ -198,7 +198,7 @@ class ShipDom {
     static createGameboard(board) {
         for (let i = 0; i < BoardSize; i += 1) {
             for (let j = 0; j < BoardSize; j += 1) {
-                const square = newElement.newElement('div', ['battleship-square--empty', 'battleship-square']);
+                const square = newElement.createElement('div', ['battleship-square--empty', 'battleship-square']);
                 board.appendChild(square);
             }
         }
@@ -211,7 +211,7 @@ class ShipDom {
 
         for (let i = 0; i < boardState.length; i += 1) {
             for (let j = 0; j < boardState[i].length; j += 1) {
-                const square = newElement.newElement('div');
+                const square = newElement.createElement('div');
                 square.dataset.row = i;
                 square.dataset.col = j;
                 square.dataset.board = player;
