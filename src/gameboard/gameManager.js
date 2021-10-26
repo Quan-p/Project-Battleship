@@ -19,13 +19,19 @@ class GameManager {
         this.startCpuTurn = this.startCpuTurn.bind(this);
         this.setPlacementIndex = this.setPlacementIndex.bind(this);
 
-        const carrier = new Ship(5);
-        const battleship = new Ship(4);
-        const submarine = new Ship(3);
-        const cruiser = new Ship(3);
-        const destroyer = new Ship(2);
+        const playerCarrier = new Ship(5);
+        const playerBattleship = new Ship(4);
+        const playerSubmarine = new Ship(3);
+        const playerCruiser = new Ship(3);
+        const playerDestroyer = new Ship(2);
 
-        const playerShips = [carrier, battleship, submarine, cruiser, destroyer];
+        const playerShips = [
+            playerCarrier,
+            playerBattleship,
+            playerSubmarine,
+            playerCruiser,
+            playerDestroyer,
+        ];
 
         const fleetDom = this.playerShips.map(GameManager.shipsToFleetDom);
 
