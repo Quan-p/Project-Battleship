@@ -1,6 +1,6 @@
 const GameState = {
     playerTurn: 0,
-    compTurn: 1,
+    cpuTurn: 1,
     gameEnd: 2,
     transition: 3,
     preGame: 4,
