@@ -57,8 +57,8 @@ class GameManager {
         for (let i = 0; i < this.placementComplete.length; i += 1) {
             this.placementComplete[i] = false;
         }
-        // not sure why the player ship array is undefined here, see constructor above
-        for (let i = 0; i < playerShips.length; i += 1) {
+
+        for (let i = 0; i < this.playerShips.length; i += 1) {
             this.playerShips[i].reset();
         }
 
@@ -70,16 +70,16 @@ class GameManager {
         this.battleshipDom.reset();
         this.battleshipDom.setCpuBoard(this.cpuBoard.boardState);
         this.battleshipDom.setPlayerBoard(this.playerBoard.boardState);
-        this.battleshipDom.dispayMessage('');
+        this.battleshipDom.displayMessage('');
 
         this.updateDomShipProxy();
 
-        this.gameState = this.GameState.placeShips;
+        this.gameState = GameState.placeShips;
     }
 
-    set testMode(value) {
-        this.testMode = value;
-    }
+    // set testMode(value) {
+    //     this.testMode = value;
+    // }
 
     startGame() {
         if (this.testMode) {
