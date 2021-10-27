@@ -52,3 +52,38 @@ test('Test player click at row 7, col 0, expect dom to update 7, 0, with hit', (
     gm.clickSquare(playerMove);
     expect(gm.setDomPlayerMove).toBeCalledWith(7, 0, AttackStatus.hit);
 });
+
+const testGame1 = new GameManager();
+testGame1.testMode = true;
+testGame1.receiveMessage(GameMessages.StartGame);
+testGame1.gameState = GameState.preGame;
+describe('Sink all of the ships', () => {
+    test('Test hit on row 6, col 4, expecting the dom to update at 6, 4 with sunk', () => {
+        const playerMove1 = {
+            target: {
+                dataset: {
+                    row: 7,
+                    col: 4,
+                    board: 'cpu',
+                },
+            },
+        };
+
+        testGame1.clickSquare(playerMove1);
+        testGame1.gameState = GameState.playerTurn;
+
+        const playerMove2 = {
+            target: {
+                dataset: {
+                    row: 6,
+                    col: 4,
+                    board: 'cpu',
+                },
+            },
+        };
+
+        testGame1.clickSquare(playerMove2);
+
+        expect(testGame1.setDomPlayerMove).toBeCalledWith(6, 4, AttackStatus.sunk);
+    });
+});
