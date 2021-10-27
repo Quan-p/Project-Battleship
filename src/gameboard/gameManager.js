@@ -169,7 +169,7 @@ class GameManager {
                     col: Number(e.target.dataset.col),
                 });
             }
-        } else if (this.gameState === 'player') {
+        } else if (this.gameState === GameState.placeShips) {
             if (e.target.dataset.board === 'player') {
                 if (
                     this.playerBoard.isValidPlacement(
@@ -390,7 +390,7 @@ class GameManager {
     }
 
     // proxy for tests
-    set gameState(value) {
+    set testGameState(value) {
         this.gameState = value;
 
         if (this.gameState === GameState.preGame) {
@@ -417,7 +417,7 @@ class GameManager {
         }
     }
 
-    get gameState() {
+    get testGameState() {
         return this.gameState;
     }
 }

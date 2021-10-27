@@ -19,7 +19,7 @@ test('Test player click at 0, 0, expect dom to update 0, 0, with miss', () => {
     const testGame = new GameManager();
     testGame.testMode = true;
     testGame.receiveMessage(GameMessages.StartGame);
-    testGame.gameState = GameState.preGame;
+    testGame.testGameState = GameState.preGame;
 
     const playerMove = {
         target: {
