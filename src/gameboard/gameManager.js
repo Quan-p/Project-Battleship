@@ -211,7 +211,7 @@ class GameManager {
 
     updatePostShipSelect() {
         const message = `Place your ${ShipNames[this.placeShipIndex]}`;
-        this.battleshipDom.dispayMessage(message);
+        this.battleshipDom.displayMessage(message);
         this.battleshipDom.focusFleetButton(this.placeShipIndex);
         this.updateDomShipProxy();
     }
@@ -413,7 +413,7 @@ class GameManager {
         } else if (this.gameState === GameState.playerTurn) {
             this.battleshipDom.showCpuBoard();
         } else if (this.gameState === GameState.transition) {
-            this.battleshipDom.dispayMessage('');
+            this.battleshipDom.displayMessage('');
         }
     }
 
