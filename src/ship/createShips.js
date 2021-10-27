@@ -335,7 +335,7 @@ class ShipDom {
         this.cpuMessage.innerHTML = `${message1}${message2}${message3}`;
     }
 
-    dispayMessage(value) {
+    displayMessage(value) {
         if (value === '') {
             this.tempMessages.style.display = 'none';
         } else {
