@@ -288,7 +288,10 @@ class GameManager {
     }
 
     playerSelection(selection) {
-        const selectionStatus = this.cpuBoard.receiveAttack(selection.row, selection.col);
+        const selectionStatus = this.cpuBoard.receiveAttack(
+            selection.row,
+            selection.col,
+        );
 
         if (selectionStatus !== AttackStatus.invalid) {
             this.gameState = GameState.transition;
@@ -390,8 +393,8 @@ class GameManager {
     }
 
     // proxy for tests
-    set testGameState(value) {
-        this.gameState = value;
+    set gameState(value) {
+        this.testGameState = value;
 
         if (this.gameState === GameState.preGame) {
             this.gameState = GameState.gameStart;
@@ -417,8 +420,8 @@ class GameManager {
         }
     }
 
-    get testGameState() {
-        return this.gameState;
+    get gameState() {
+        return this.testGameState;
     }
 }
 
