@@ -301,10 +301,10 @@ class ShipDom {
             message2 = "<span class = 'hit-message>hit</span>";
             message3 = 'hit';
         } else if (status === AttackStatus.sunk) {
-            message2 = "<span class = 'hit-message>sunk</span>";
+            message2 = "<span class = 'sunk-message>sunk</span>";
             message3 = 'one of your ships';
         } else if (status === AttackStatus.miss) {
-            message2 = "<span class = 'hit-message>missed!</span>";
+            message2 = "<span class = 'miss-message>missed!</span>";
             message3 = '';
         }
         this.playerMessage.innerHTML = `${message1}${message2}${message3}`;
@@ -325,10 +325,10 @@ class ShipDom {
             message2 = "<span class = 'hit-message>hit</span>";
             message3 = "the opponent's ship";
         } else if (status === AttackStatus.sunk) {
-            message2 = "<span class = 'hit-message>sunk</span>";
+            message2 = "<span class = 'sunk-message>sunk</span>";
             message3 = "one of the opponent's ship";
         } else if (status === AttackStatus.miss) {
-            message2 = "<span class = 'hit-message>missed!</span>";
+            message2 = "<span class = 'miss-message>missed!</span>";
             message3 = '';
         }
         this.cpuMessage.innerHTML = `${message1}${message2}${message3}`;
