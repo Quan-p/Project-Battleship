@@ -161,7 +161,12 @@ body {
 .battleship-square--place-highlight-invalid {
     background-color: #ef1a1e;
     border: solid 1px #660708;
-  }
+}
+
+.hidden {
+    display: none;
+}
+
 
 @keyframes pulse {
     0% {
