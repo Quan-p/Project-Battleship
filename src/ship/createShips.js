@@ -19,13 +19,13 @@ class ShipDom {
     }
 
     createElementsForStartPage() {
-        this.introParent = newElement.createElement('div', 'intro');
+        this.introParent = newElement.createElement('div', 'intro-wrapper');
         this.introTitle = newElement.createElement('h1', 'intro-title');
         this.introMessage = newElement.createElement('p', 'intro-message');
         this.introButton = newElement.createElement('button', 'intro-button');
 
         this.introTitle.innerText = 'BATTLESHIP';
-        this.introMessage.innerText = "Please place the 5 ships of your fleet on the board.  To win, be the first to sink all 5 of your opponent's ships";
+        this.introMessage.innerText = "Place the 5 ships of your fleet on the board.  Be the first to sink all 5 of your opponent's ships to win!";
         this.introButton.innerText = 'START GAME';
 
         this.introButton.addEventListener('click', this.startGame);
