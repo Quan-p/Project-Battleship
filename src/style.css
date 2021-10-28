@@ -134,6 +134,35 @@ body {
     border: solid 1px rgba(0, 0, 0, 0.25);
 }
 
+.battleship-square--ship {
+    background-color: turquoise;
+    border: solid 1px black;
+}
+.battleship-square--empty-hit {
+    background-color: purple;
+    border: solid 1px rgba(0, 0, 0, 0.25);
+}
+
+.battleship-square--ship-hit {
+    background-color: red;
+    border: solid 1px greenyellow;
+}
+
+.battleship-square--ship-sunk {
+    background-color: indigo;
+    border: solid 1px plum;
+}
+
+.battleship-square--place-highlight {
+    background-color: #52b788;
+    border: solid 1px #307354;
+}
+
+.battleship-square--place-highlight-invalid {
+    background-color: #ef1a1e;
+    border: solid 1px #660708;
+  }
+
 @keyframes pulse {
     0% {
       opacity: 0;
