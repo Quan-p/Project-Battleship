@@ -80,8 +80,7 @@ class ShipDom {
     addFleetButtons() {
         for (let i = 0; i < this.fleet.length; i += 1) {
             const btn = newElement.createElement('button', 'fleet-wrapper-button');
-            // btn.style.gridColumn = `1 / span ${this.fleet[i].length}';
-            // style this separately
+            btn.style.gridColumn = `1 / span ${this.fleet[i].length}`;
             btn.dataset.index = i;
             this.fleetWrapper.appendChild(btn);
         }
@@ -112,7 +111,7 @@ class ShipDom {
         this.playerTitle = newElement.createElement('h2', 'player-title');
         this.cpuTitle = newElement.createElement('h2', 'player-title');
         this.playerTitle.innerText = 'YOUR WATERS';
-        this.cpuTitle.innerText = 'CPU WATERs';
+        this.cpuTitle.innerText = 'CPU WATERS';
 
         this.playerBoard = newElement.createElement('div', 'player-field-grid');
         this.cpuBoard = newElement.createElement('div', 'player-field-grid');
