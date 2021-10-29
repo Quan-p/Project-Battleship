@@ -425,7 +425,7 @@ class ShipDom {
         }
 
         if (direction === Direction.left || direction === Direction.right) {
-            this.testShip.style.gridColumn = `${colStart}${rowStart}`;
+            this.testShip.style.gridColumn = `${colStart} / ${rowStart}`;
             this.testShip.style.gridRow = `${rowStart}`;
         } else {
             this.testShip.style.gridColumn = `${colStart}`;
