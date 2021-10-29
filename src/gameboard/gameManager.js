@@ -311,14 +311,14 @@ class GameManager {
     }
 
     startCpuTurn() {
-        const selectionStatus = AttackStatus.invalid;
+        let selectionStatus = AttackStatus.invalid;
         let row = -1;
         let col = -1;
         while (selectionStatus === AttackStatus.invalid) {
             row = Math.round(Math.random() * 7);
             col = Math.round(Math.random() * 7);
 
-            selectionStatus.this.playerBoard.receiveAttack(row, col);
+            selectionStatus = this.playerBoard.receiveAttack(row, col);
         }
 
         this.gameState = GameState.transition;
