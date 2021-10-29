@@ -128,7 +128,7 @@ body {
     cursor: pointer;
 }
 
-.test-grid,
+.testGrid-empty,
 .battleship-square--empty {
     background-color: transparent;
     border: solid 1px rgba(0, 0, 0, 0.25);
@@ -167,6 +167,62 @@ body {
     display: none;
 }
 
+.message {
+    animation-duration: 5s;
+    animation-name: fadeout;
+    animation-timing-function: ease-out;
+}
+
+.miss-message {
+    color: #003049;
+}
+
+.hit-message {
+    color: #ae2012;
+}
+.sunk-message {
+    color: #9b2226;
+}
+
+.placement-preview-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.rotate-button {
+    padding: 5px;
+    border: solid 3px black;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    margin: 5px;
+}
+
+.test-grid {
+    width: max(10vw, 10vh);
+    height: max(10vw, 10vh);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    background-color: #005f73;
+    margin: 5px;
+}
+
+.fleet-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: max(10vw, 10vh);
+    height: max(10vw, 10vh);
+    margin: 10px;
+}
+
+.test-ship {
+    background-color: #ee9b00;
+    border: solid 3px #b87700;
+}
+
 
 @keyframes pulse {
     0% {
@@ -184,4 +240,18 @@ body {
     100% {
       opacity: 0;
     }
-  }
+}
+
+@keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+  
+    60% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+}
