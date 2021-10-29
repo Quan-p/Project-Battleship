@@ -382,11 +382,11 @@ class ShipDom {
     }
 
     smallPlayerBoard() {
-        this.playerBoard.classList.add('battleship-player-field_battleship-grid--mini');
+        this.playerBoard.classList.add('player-field-grid--mini');
     }
 
     normalPlayerBoard() {
-        this.playerBoard.classList.remove('battleship-player-field_battleship-grid--mini');
+        this.playerBoard.classList.remove('player-field-grid--mini');
     }
 
     rotateTestShip(length, direction) {
