@@ -199,6 +199,11 @@ body {
     margin: 5px;
 }
 
+.rotate-button:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
 .test-grid {
     width: max(10vw, 10vh);
     height: max(10vw, 10vh);
@@ -223,6 +228,72 @@ body {
     border: solid 3px #b87700;
 }
 
+.reset-field {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.reset-field-button {
+    padding: 5px;
+    border: solid 3px black;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+
+.reset-field-button:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.fleet-wrapper-button {
+    background-color: #ef1a1e;
+    border: none;
+    margin: 1px;
+    border: solid 3px #ac2020;
+}
+
+.fleet-wrapper-button:hover {
+    background-color: #660708;
+}
+
+@media (max-width: 500px) {
+    .player-field-grid {
+      width: clamp(200px, min(90vw, 40vh), 380px);
+      height: clamp(200px, min(90vw, 40vh), 380px);
+    }
+  
+    .playing-field {
+      flex-direction: column;
+    }
+  
+    .player-field-grid--mini {
+      width: clamp(100px, 35vw, 200px);
+      height: clamp(100px, 35vw, 200px);
+    }
+    .placement-wrapper {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .player-field-message {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      min-height: 2rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  
+    .player-title {
+      font-size: 1.2rem;
+    }
+  
+    .intro-title {
+      font-size: 2rem;
+    }
+  }
 
 @keyframes pulse {
     0% {
