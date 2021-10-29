@@ -212,7 +212,7 @@ class GameManager {
     updatePostShipSelect() {
         const message = `Place your ${ShipNames[this.placeShipIndex]}`;
         this.battleshipDom.displayMessage(message);
-        this.battleshipDom.focusFleetButton(this.placeShipIndex);
+        this.battleshipDom.highlightFleetButton(this.placeShipIndex);
         this.updateDomShipProxy();
     }
 

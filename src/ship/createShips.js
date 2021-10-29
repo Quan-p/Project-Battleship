@@ -40,7 +40,7 @@ class ShipDom {
         this.placementPreviewSpace = newElement.createElement('div', 'placement-preview-space');
 
         this.rotateButton = newElement.createElement('button', 'rotate-button');
-        this.rotateButton.innerText = ' ROTATE';
+        this.rotateButton.innerText = 'ROTATE';
         this.rotateButton.addEventListener('click', this.sendRotate);
 
         this.testGrid = newElement.createElement('div', 'test-grid');
@@ -67,12 +67,12 @@ class ShipDom {
         this.selectShip(Number(e.target.dataset.index));
     }
 
-    focusFleetButton(index) {
+    highlightFleetButton(index) {
         for (let i = 0; i < this.fleetWrapper.childNodes.length; i += 1) {
             if (Number(this.fleetWrapper.childNodes[i].dataset.index) === index) {
-                this.fleetWrapper.childNodes[i].classList.add('fleet-button-focus');
+                this.fleetWrapper.childNodes[i].classList.add('fleet-button-highlight');
             } else {
-                this.fleetWrapper.childNodes[i].classList.remove('fleet-button-focus');
+                this.fleetWrapper.childNodes[i].classList.remove('fleet-button-highlight');
             }
         }
     }
