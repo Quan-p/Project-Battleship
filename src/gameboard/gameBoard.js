@@ -133,7 +133,6 @@ class GameBoard {
         ) {
             return AttackStatus.invalid;
         }
-        // A valid attack must be to an empty space, or a ship in a position it hasn't been hit
         if (this.boardState[row][col] === BoardSpaceStatus.empty) {
             this.boardState[row][col] = BoardSpaceStatus.emptyHit;
             return AttackStatus.miss;
@@ -141,7 +140,6 @@ class GameBoard {
         if (this.boardState[row][col] === BoardSpaceStatus.ship) {
             this.boardState[row][col] = BoardSpaceStatus.shipHit;
 
-            // route the hit to the proper ship
             let hitStatus;
             for (let i = 0; i < this.ships.length; i += 1) {
                 hitStatus = GameBoard.checkIfShotIsInShipBounds(

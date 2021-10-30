@@ -299,7 +299,7 @@ class ShipDom {
 
         if (status === AttackStatus.hit) {
             message2 = "<span class='hit-message'>hit</span>";
-            message3 = 'hit';
+            message3 = ' one of your ships.';
         } else if (status === AttackStatus.sunk) {
             message2 = "<span class='sunk-message'>sunk</span>";
             message3 = ' one of your ships';
