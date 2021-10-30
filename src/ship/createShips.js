@@ -4,8 +4,8 @@ import {
 } from './shipMessage';
 
 class ShipDom {
-    constructor(fleet) {
-        this.fleet = fleet;
+    constructor(domFleet) {
+        this.domFleet = domFleet;
         this.sendMessage = null;
         this.resetGame = this.resetGame.bind(this);
         this.startGame = this.startGame.bind(this);
@@ -78,9 +78,9 @@ class ShipDom {
     }
 
     addFleetButtons() {
-        for (let i = 0; i < this.fleet.length; i += 1) {
+        for (let i = 0; i < this.domFleet.length; i += 1) {
             const btn = newElement.createElement('button', 'fleet-wrapper-button');
-            btn.style.gridColumn = `1 / span ${this.fleet[i].length}`;
+            btn.style.gridColumn = `1 / span ${this.domFleet[i].length}`;
             btn.dataset.index = i;
             this.fleetWrapper.appendChild(btn);
         }
