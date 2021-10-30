@@ -98,7 +98,7 @@ body {
     grid-template-rows: repeat(var(--gridSize), 1fr);
     margin: 10px;
 
-    background: gray;
+    background: rgb(0, 80, 122);
     background: linear-gradient(
         135deg,
         rgba(0, 80, 122, 1) 0%,
@@ -136,30 +136,30 @@ body {
     border: solid 1px #495057;
   }
   
-  .battleship-square--empty-hit {
+.battleship-square--empty-hit {
     background-color: #003049;
     border: solid 1px rgba(0, 0, 0, 0.25);
-  }
+}
   
-  .battleship-square--ship-hit {
+.battleship-square--ship-hit {
     background-color: #d62828;
     border: solid 1px #ac2020;
-  }
+}
   
-  .battleship-square--ship-sunk {
+.battleship-square--ship-sunk {
     background-color: #000814;
     border: solid 1px #000814;
-  }
+}
   
-  .battleship-square--place-highlight {
+.battleship-square--place-highlight {
     background-color: #52b788;
     border: solid 1px #307354;
-  }
+}
   
-  .battleship-square--place-highlight-invalid {
+.battleship-square--place-highlight-invalid {
     background-color: #ef1a1e;
     border: solid 1px #660708;
-  }
+}
 
 .hidden {
     display: none;
@@ -261,8 +261,8 @@ body {
 
 @media (max-width: 500px) {
     .player-field-grid {
-      width: clamp(200px, min(90vw, 40vh), 380px);
-      height: clamp(200px, min(90vw, 40vh), 380px);
+        width: clamp(200px, min(90vw, 40vh), 380px);
+        height: clamp(200px, min(90vw, 40vh), 380px);
     }
   
     .playing-field {
