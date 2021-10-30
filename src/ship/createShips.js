@@ -348,12 +348,17 @@ class ShipDom {
             const squares = this.playerBoard.querySelectorAll('.battleship-square');
             for (let i = 0; i < squares.length; i += 1) {
                 for (let j = 0; j < squaresToHighlight.length; j += 1) {
-                    if (Number(squares[j].dataset.row) === squaresToHighlight[j].rowVar
-                    && Number(squares[j].dataset.col) === squaresToHighlight[j].colVar) {
+                    if (
+                        Number(squares[i].dataset.row) === squaresToHighlight[j].rowVar
+                        && Number(squares[i].dataset.col) === squaresToHighlight[j].colVar
+                    ) {
+                    // highlight
                         if (valid) {
                             squares[i].classList.add('battleship-square--place-highlight');
                         } else {
-                            squares[i].classList.add('battleship-square--place-highlight-invalid');
+                            squares[i].classList.add(
+                                'battleship-square--place-highlight-invalid',
+                            );
                         }
                     }
                 }
