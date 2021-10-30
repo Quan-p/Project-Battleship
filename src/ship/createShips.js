@@ -394,22 +394,23 @@ class ShipDom {
         let rowStart = 1;
         // possible issue here in future
         switch (length) {
-        case 1: {
+        case 2: {
             colStart = 3;
             rowStart = 3;
             break;
         }
-        case 2: {
+        case 3: {
             if (direction === Direction.left || direction === Direction.right) {
                 colStart = 2;
-                rowStart = 2;
+                rowStart = 3;
             } else {
                 colStart = 3;
-                rowStart = 3;
+                rowStart = 2;
             }
             break;
         }
-        case 3: {
+        case 4:
+        case 5: {
             if (direction === Direction.left || direction === Direction.right) {
                 colStart = 1;
                 rowStart = 3;
@@ -425,11 +426,11 @@ class ShipDom {
         }
 
         if (direction === Direction.left || direction === Direction.right) {
-            this.testShip.style.gridColumn = `${colStart} / ${rowStart}`;
+            this.testShip.style.gridColumn = `${colStart} / span ${length}`;
             this.testShip.style.gridRow = `${rowStart}`;
         } else {
-            this.testShip.style.gridColumn = `${colStart}`;
             this.testShip.style.gridRow = `${rowStart} / span ${length}`;
+            this.testShip.style.gridColumn = `${colStart}`;
         }
     }
 
