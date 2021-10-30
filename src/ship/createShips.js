@@ -439,11 +439,11 @@ class ShipDom {
     }
 
     hidePlacementOptions() {
-        this.fleetWrapper.style.display = 'none';
+        this.placementPreviewSpace.style.display = 'none';
     }
 
     showPlacementOptions() {
-        this.fleetWrapper.style.display = 'flex';
+        this.placementPreviewSpace.style.display = 'flex';
     }
 }
 
