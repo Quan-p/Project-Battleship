@@ -74,7 +74,7 @@ class GameManager {
 
         this.updateDomShipProxy();
 
-        this.gameState = GameState.placeShips;
+        this.gameState = GameState.placingShips;
     }
 
     // set testMode(value) {
@@ -169,7 +169,7 @@ class GameManager {
                     col: Number(e.target.dataset.col),
                 });
             }
-        } else if (this.gameState === GameState.placeShips) {
+        } else if (this.gameState === GameState.placingShips) {
             if (e.target.dataset.board === 'player') {
                 if (
                     this.playerBoard.isValidPlacement(
@@ -224,7 +224,7 @@ class GameManager {
     }
 
     hoverSquare(e) {
-        if (this.gameState === GameState.placeShips) {
+        if (this.gameState === GameState.placingShips) {
             if (
                 e.target.dataset.row !== this.cachedRow
                 || e.target.dataset.col !== this.cachedCol
@@ -266,7 +266,7 @@ class GameManager {
     }
 
     leaveSquare() {
-        if (this.gameState === GameState.placeShips) {
+        if (this.gameState === GameState.placingShips) {
             this.battleshipDom.removeHighlightSquares();
         }
     }
@@ -370,7 +370,7 @@ class GameManager {
             break;
         }
         case GameMessages.Rotate: {
-            if (this.gameState === GameState.placeShips) {
+            if (this.gameState === GameState.placingShips) {
                 this.rotateShip();
                 this.updateDomShipProxy();
             }
@@ -412,7 +412,7 @@ class GameManager {
             this.battleshipDom.smallPlayerBoard();
             this.battleshipDom.hidePlacementOptions();
             this.gameState = GameState.playerTurn;
-        } else if (this.gameState === GameState.placeShips) {
+        } else if (this.gameState === GameState.placingShips) {
             const message = `Place your ${ShipNames[this.placeShipIndex]}`;
             this.battleshipDom.displayMessage(message);
             // only show player board when placing ships

@@ -4,7 +4,7 @@ const GameState = {
     gameEnd: 2,
     transition: 3,
     preGame: 4,
-    placeShips: 5,
+    placingShips: 5,
     welcome: 6,
     gameStart: 7,
     reset: 8,
