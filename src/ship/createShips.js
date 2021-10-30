@@ -259,7 +259,7 @@ class ShipDom {
     getCpuMove(row, col, status) {
         ShipDom.getMove(row, col, status, this.playerBoard);
         if (status === AttackStatus.sunk) {
-            this.sendMessage(GameMessages.DrawPlayerBoard);
+            this.sendMessage(GameMessages.DrawCpuBoard);
         }
         this.setPlayerMessage(status);
     }
