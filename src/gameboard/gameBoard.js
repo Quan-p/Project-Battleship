@@ -127,13 +127,13 @@ class GameBoard {
         if (!GameBoard.isSpaceInBounds(row, col)) {
             return AttackStatus.invalid;
         }
-        // invalid attacks
         if (
             this.boardState[row][col] === BoardSpaceStatus.emptyHit
             || this.boardState[row][col] === BoardSpaceStatus.shipHit
         ) {
             return AttackStatus.invalid;
         }
+        // A valid attack must be to an empty space, or a ship in a position it hasn't been hit
         if (this.boardState[row][col] === BoardSpaceStatus.empty) {
             this.boardState[row][col] = BoardSpaceStatus.emptyHit;
             return AttackStatus.miss;
@@ -141,9 +141,14 @@ class GameBoard {
         if (this.boardState[row][col] === BoardSpaceStatus.ship) {
             this.boardState[row][col] = BoardSpaceStatus.shipHit;
 
+            // route the hit to the proper ship
             let hitStatus;
             for (let i = 0; i < this.ships.length; i += 1) {
-                hitStatus = GameBoard.checkIfShotIsInShipBounds(row, col, this.ships[i]);
+                hitStatus = GameBoard.checkIfShotIsInShipBounds(
+                    row,
+                    col,
+                    this.ships[i],
+                );
 
                 if (hitStatus.hit) {
                     this.ships[i].ship.hit(hitStatus.position);
@@ -155,13 +160,17 @@ class GameBoard {
                         for (let j = 0; j < coords.length; j += 1) {
                             this.boardState[coords[j].row][coords[j].col] = BoardSpaceStatus.shipSunk;
                         }
+
                         return AttackStatus.sunk;
                     }
+
                     break;
                 }
             }
+
             return AttackStatus.hit;
         }
+
         return AttackStatus.invalid;
     }
 
