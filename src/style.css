@@ -98,9 +98,6 @@ body {
     grid-template-rows: repeat(var(--gridSize), 1fr);
     margin: 10px;
 
-    width: 300px;
-    height: 300px;
-
     background: gray;
     background: linear-gradient(
         135deg,
