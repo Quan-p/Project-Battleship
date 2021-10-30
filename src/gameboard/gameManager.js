@@ -40,7 +40,7 @@ class GameManager {
         this.battleshipDom.setHoverEventHandler(this.hoverSquare);
         this.battleshipDom.setMouseLeaveEventHandler(this.leaveSquare);
         this.battleshipDom.setMessageFunction(this.receiveMessage);
-        this.battleshipDom.setClickEventHandler(this.rotateShip);
+        this.battleshipDom.setRightClickEventHandler(this.rotateShip);
         this.battleshipDom.setShip(this.setPlacementIndex);
 
         this.testMode = false;
