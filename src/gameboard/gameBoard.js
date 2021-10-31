@@ -25,9 +25,8 @@ class GameBoard {
     // if empty space return true
 
     isSpaceEmpty(row, col) {
-        if (this.boardState[row][col] === BoardSpaceStatus.empty) {
-            return true;
-        }
+        if (this.boardState[row][col] === BoardSpaceStatus.empty) return true;
+
         return false;
     }
 
@@ -133,6 +132,7 @@ class GameBoard {
         ) {
             return AttackStatus.invalid;
         }
+        // A valid attack must be to an empty space, or a ship in a position it hasn't been hit
         if (this.boardState[row][col] === BoardSpaceStatus.empty) {
             this.boardState[row][col] = BoardSpaceStatus.emptyHit;
             return AttackStatus.miss;
