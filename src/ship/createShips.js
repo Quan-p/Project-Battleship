@@ -241,7 +241,8 @@ class ShipDom {
                     square.classList.add('battleship-square--ship-sunk');
                     break;
                 }
-                default: break;
+                default:
+                    break;
                 }
                 board.appendChild(square);
             }
