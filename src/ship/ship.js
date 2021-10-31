@@ -28,7 +28,7 @@ class Ship {
             }
         }
         return sunk;
-}
+    }
 
     get length() {
         return this.status.length;
