@@ -23,7 +23,7 @@ class Ship {
     get isSunk() {
         let sunk = true;
         for (let i = 0; i < this.status.length; i += 1) {
-            if (this.status[i] === Ship.hitStatus.unhit) {
+            if (this.status[i] === Ship.hitStatus.unHit) {
                 sunk = false;
             }
         }
