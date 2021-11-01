@@ -406,10 +406,10 @@ class GameManager {
             this.battleshipDom.displayMessage('Attack your opponent');
         }
         if (this.gameState === GameState.reset) {
-            this.battleshipDom.normalPlayerBoard();
+            this.battleshipDom.makePlayerBoardRegular();
             this.battleshipDom.showPlacementOptions();
         } else if (this.gameState === GameState.gameStart) {
-            this.battleshipDom.smallPlayerBoard();
+            this.battleshipDom.makePlayerBoardSmall();
             this.battleshipDom.hidePlacementOptions();
             this.gameState = GameState.playerTurn;
         } else if (this.gameState === GameState.placingShips) {
