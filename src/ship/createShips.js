@@ -215,7 +215,6 @@ class ShipDom {
                 square.dataset.col = j;
                 square.dataset.board = player;
                 square.classList.add('battleship-square');
-
                 switch (boardState[i][j]) {
                 case BoardSpaceStatus.empty: {
                     square.classList.add('battleship-square--empty');
