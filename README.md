@@ -20,6 +20,6 @@ This Battleship project was part of the self-taught education of The Odin Projec
 
 ![main](/images/main.png?raw=true)
 
-![place](../images/place.png?raw=true)
+![place](/images/place.png?raw=true)
 
-![gameplay](../images/gameplay.png?raw=true)
+![gameplay](/images/gameplay.png?raw=true)
