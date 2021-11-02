@@ -28,23 +28,24 @@ body {
 }
 
 .intro-title {
-    font-size: 40px;
+    font-size: 60px;
 }
 
 .intro-message {
-    font-size: 15px;
+    font-size: 25px;
     margin: 1rem;
+    text-align: center;
 }
 
 .intro-button {
     border: solid 2px black;
     border-radius: 10px;
     padding: 10px;
-    
+    font-weight: 900;
 }
 
 .intro-button:hover {
-    background-color: bisque;
+    background-color: #f4b95f;
     cursor: pointer;
 }
 
@@ -58,9 +59,9 @@ body {
 }
 
 .stage-temp-messages {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
     padding-left: 20px;
     padding-right: 20px;
     animation-name: pulse;
@@ -101,12 +102,6 @@ body {
     margin: 10px;
 
     background: #3b648e;
-    /* background: linear-gradient(
-        135deg,
-        rgba(0, 80, 122, 1) 0%,
-        rgba(0, 93, 143, 1) 46%,
-        rgba(0, 106, 163, 1) 100%
-    ); */
     border: solid 1px black;
 }
 
@@ -130,7 +125,7 @@ body {
 .testGrid-empty,
 .battleship-square--empty {
     background-color: transparent;
-    border: solid 1px rgba(0, 0, 0, 0.25);
+    border: solid 1px rgba(0, 0, 0, 0.712);
 }
 
 .battleship-square--ship {
@@ -195,12 +190,12 @@ body {
     padding: 5px;
     border: solid 3px black;
     border-radius: 10px;
-    background-color: blanchedalmond;
     margin: 5px;
+    font-weight: 900;
 }
 
 .rotate-button:hover {
-    background-color: gray;
+    background-color: #f4b95f;
     cursor: pointer;
 }
 
@@ -210,7 +205,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    background-color: #005f73;
+    background-color: #9fbde9;
     margin: 5px;
 }
 
@@ -224,8 +219,9 @@ body {
 }
 
 .test-ship {
-    background-color: #ee9b00;
-    border: solid 3px #b87700;
+    background-color: #f4b95f;
+    border: solid 1px #b87700;
+    border-radius: 3px;
 }
 
 .reset-field {
@@ -238,21 +234,21 @@ body {
     padding: 5px;
     border: solid 3px black;
     border-radius: 10px;
-    background-color: blanchedalmond;
     font-size: 20px;
     font-weight: 900;
 }
 
 .reset-field-button:hover {
-    background-color: gray;
+    background-color: #f4b95f;
     cursor: pointer;
 }
 
 .fleet-wrapper-button {
-    background-color: #ef1a1e;
+    background-color: #aa494b;
     border: none;
     margin: 1px;
-    border: solid 3px #ac2020;
+    border: solid 1px #ac2020;
+    border-radius: 3px;
 }
 
 .fleet-wrapper-button:hover {
