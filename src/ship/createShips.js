@@ -386,12 +386,16 @@ class ShipDom {
         this.sendMessage(GameMessages.StartGame);
     }
 
-    smallPlayerBoard() {
-        this.playerBoard.classList.add('player-field-grid--mini');
+    makePlayerBoardSmall() {
+        this.playerBoard.classList.add(
+            'battleship-player-field__battleship-grid--mini',
+        );
     }
 
-    normalPlayerBoard() {
-        this.playerBoard.classList.remove('player-field-grid--mini');
+    makePlayerBoardRegular() {
+        this.playerBoard.classList.remove(
+            'battleship-player-field__battleship-grid--mini',
+        );
     }
 
     rotateTestShip(length, direction) {
