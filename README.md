@@ -18,7 +18,7 @@ This Battleship project was part of the self-taught education of The Odin Projec
 - Updated notifications of game events
 - Reset game at any time to replace ships
 
-![main](../images/main.png?raw=true)
+![main](/images/main.png?raw=true)
 
 ![place](../images/place.png?raw=true)
 
