@@ -18,8 +18,8 @@ This Battleship project was part of the self-taught education of The Odin Projec
 - Updated notifications of game events
 - Reset game at any time to replace ships
 
-![main](https://github.com/[Quan-p]/[Project-Battleship]/tree/main/images/main.png?raw=true)
+![main](../images/main.png?raw=true)
 
-![place](https://github.com/[Quan-p]/[Project-Battleship]/tree/main/images/place.png?raw=true)
+![place](../images/place.png?raw=true)
 
-![gameplay](https://github.com/[Quan-p]/[Project-Battleship]/tree/main/images/gameplay.png?raw=true)
+![gameplay](../images/gameplay.png?raw=true)
