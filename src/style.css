@@ -76,7 +76,7 @@ body {
 }
 
 .game-title-content {
-    font-size: 30px;
+    font-size: 70px;
 }
 
 .playing-field {
@@ -110,7 +110,7 @@ body {
 }
 
 .player-title {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .player-field-message {
@@ -238,6 +238,8 @@ body {
     border: solid 3px black;
     border-radius: 10px;
     background-color: blanchedalmond;
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .reset-field-button:hover {
